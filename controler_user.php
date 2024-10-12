@@ -15,11 +15,11 @@ function inscriptionFormInspection()
 {
     // 1 - Look for empty fields
     if (!isset($_POST["email"]) || empty($_POST["email"])) {
-        return ["pseudo" => "", "nom" => "", "prenom" => "", "email" => "", "mdp" => "", "erreur" => "Veuillez enregistrer un email."];
+        return ["pseudo" => "", "nom" => "", "prenom" => "", "email" => "", "mdp" => "", "date" => "", "erreur" => "Veuillez enregistrer un email."];
     }
 
     if (!isset($_POST["mdp"]) || empty($_POST["mdp"])) {
-        return ["pseudo" => "", "nom" => "", "prenom" => "", "email" => "", "mdp" => "", "erreur" => "Veuillez enregistrer un mot de passe."];
+        return ["pseudo" => "", "nom" => "", "prenom" => "", "email" => "", "mdp" => "", "date" => "", "erreur" => "Veuillez enregistrer un mot de passe."];
     }
 
     // 2 - Datas cleaning
@@ -28,17 +28,18 @@ function inscriptionFormInspection()
     $prenom = sanitize($_POST["prenom"]);
     $email = sanitize($_POST["email"]);
     $mdp = sanitize($_POST["mdp"]);
+    $date = date("Y-m-d H:i:s", mktime(date('H') + 2));
 
     // 3 - Verify email format
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return ["pseudo" => '', "nom" => '', "prenom" => '', "email" => '', "mdp" => '', "erreur" => 'Email pas au bon format !'];
+        return ["pseudo" => '', "nom" => '', "prenom" => '', "email" => '', "mdp" => '', "date" => "","erreur" => 'Email pas au bon format !'];
     }
 
     // 4 - password hashing
     $mdp = password_hash($mdp, PASSWORD_BCRYPT);
 
     // 5 - Return a tab to have cleaner view of datas
-    return ["pseudo" => $pseudo, "nom" => $nom, "prenom" => $prenom, "email" => $email, "mdp" => $mdp, "erreur" => ""];
+    return ["pseudo" => $pseudo, "nom" => $nom, "prenom" => $prenom, "email" => $email, "mdp" => $mdp, "date" => $date, "erreur" => ""];
 }
 
 // Inscription form reception verification
@@ -49,7 +50,7 @@ if (isset($_POST["submit"])){
     } else {
         $newUser = new ManagerUser($tab['email']);
 
-        $newUser -> setPseudo($tab['pseudo'])->setNom($tab['nom'])->setPrenom($tab['prenom'])->setEmail($tab['email']) -> setMdp($tab['mdp']);
+        $newUser -> setPseudo($tab['pseudo'])->setNom($tab['nom'])->setPrenom($tab['prenom'])->setEmail($tab['email']) -> setMdp($tab['mdp'])->setDate($tab['date']);
 
         // Check if email available
         if (empty($newUser->readUsersByEmail())){

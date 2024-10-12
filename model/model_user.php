@@ -7,6 +7,7 @@ class ModelUser{
     private ?string $prenom;
     private ?string $email;
     private ?string $mdp;
+    private ?string $date;
 
     public function __construct(?string $email){
     $this->email=$email;
@@ -30,6 +31,9 @@ public function getEmail(): ?string{
 }
 public function getMdp(): ?string{
     return $this->mdp;
+}
+public function getDate(): ?string{
+    return $this->date;
 }
 //END GETTERS
 
@@ -58,6 +62,10 @@ public function setEmail(?string $email): ModelUser{
 }
 public function setMdp(?string $mdp): ModelUser{
     $this->mdp = $mdp;
+    return $this;
+}
+public function setDate(?string $date): ModelUser{
+    $this->date=$date;
     return $this;
 }
 //END SETTERS
