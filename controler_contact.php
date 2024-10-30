@@ -28,38 +28,38 @@ function contactFormInspection()
     $objet = sanitize($_POST["objet"]);
     $contenu = sanitize($_POST["contenu"]);
     $date = date("Y-m-d H:i:s");
-
     //3 - Verify email format
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return ["email" => "", "objet" => "", "contenu" => "", "date" => "", "erreur" => "L'email n'est pas au bon format."];
     }
-
     // 4 - Return a tab to have cleaner view of datas
     return ["email" => $email, "objet" => $objet, "contenu" => $contenu, "date" => $date, "erreur" => ""];
 }
 
+// contact form reception verification
+if (isset($_POST["submit"])){
+    $tab = contactFormInspection();
+    if($tab["erreur"] != ""){
+        $message = $tab["erreur"];
+    } else {
+        $newMessage = new ManagerContact($tab['email'], $tab['objet'], $tab['contenu'], $tab['date']);
 
+        $newMessage->setEmail($tab['email'])->setObjet($tab['objet'])->setContenu($tab['contenu'])->setDate($tab['date']);
 
-// if (isset($_POST["submit"])) {
-//     $tab = contactFormInspection();
-//     if ($tab["erreur"] != "") {
-//         $message = $tab["erreur"];
-//     } else {
-//         $newMessage = new ManagerContact($tab['email'], $tab['objet'], $tab['contenu'], $tab['date']);
+        // Check if email available
+        if (empty($newMessage->readUsersByEmail())){
+            $message = $newMessage->addMessage();
+        } else {
+            $message = $newMessage->addMessage();
+        }
+    }
+}
 
-//         $newMessage->setEmail($tab['email'])->setObjet($tab['objet'])->setContenu($tab['contenu'])->setDate($tab['date']);
-
-//         // Check if email available
-//         if (empty($newMessage->readUsersByEmail())) {
-//             $message = $newMessage->addMessage();
-//         } else {
-//             // $message = $newMessage->addMessage();
-//             $message = "<p>⛔️ Cet email existe déjà.</p>";
-//         }
-//     }
-// }
-
-
+if(isset($_SESSION['id_utilisateur'])){
+    $colorContact = '#ffc107';
+} else if (!isset($_SESSION['id_utilisateur'])){
+    $colorContact = 'white';
+}
 
 include './view/view_header.php';
 include './view/view_contact.php';

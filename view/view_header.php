@@ -18,7 +18,7 @@
     <!-- Début de la navbar -->
     <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid ps-4">
-            <div class="row">
+            <div class="row align-item-center">
                 <div class="col-3 d-flex">
                     <a class="navbar-brand text-warning" href="controler_accueil.php"><img style="width:35%"
                             src="./img/logo2.png"></a>
@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="col-6 ms-4">
-                        <form class=" d-flex" role="search">
+                        <form class="d-flex" role="search">
                             <div class="col-9 me-2">
                                 <input class="form-control me-2" type="search" placeholder="Rechercher"
                                     aria-label="Search">
@@ -67,11 +67,15 @@
 
                 <div class="col-3 text-end">
                     <a href="controler_user.php">
-                        <i class="bi bi-person-circle" style="font-size : 40px; color : white; margin-left:250px;"></i>
+                        <i class="bi bi-person-circle" style="font-size : 40px; color : <?php echo $colorContact ?>; margin-left:250px;"></i>
                     </a>
                 </div>
             </div>
 
         </div>
+
+
     </nav>
+    
+    <a class="nav-link" href="controler_deco.php">Déconnexion</a>
     <!-- Fin navbar -->

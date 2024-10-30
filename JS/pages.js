@@ -25,7 +25,7 @@ const allEmailInputsUI = document.querySelectorAll('.emailInput');
 const connexionInputPasswordUI = document.querySelector('#connexionInputPassword');
 const allPasswordInputsUI = document.querySelectorAll('.passwordInput');
 const inscriptionPassWordsCheckUI = document.querySelectorAll('.pwdCheck');
-const messageCo = document.querySelector('#messageCo');
+// const messageCo = document.querySelector('#messageCo');
 
 const regexObj = {
     regexMail : /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/,
@@ -80,19 +80,19 @@ function emailInputChecker(paramInput) {
     displayErrorMessages(); // Appel à la fonction pour afficher les messages d'erreur
 };
 allEmailInputsUI.forEach(element => {
-    element.addEventListener('keyup',()=>{
+    element.addEventListener('click',()=>{
         xssInputChecker(element);
         emailInputChecker(element);
     });
 });
 allPasswordInputsUI.forEach(element => {
-    element.addEventListener('keyup',()=>{
+    element.addEventListener('click',()=>{
         passwordInputChecker(element);
         xssInputChecker(element);
     });
 });
 inscriptionPassWordsCheckUI.forEach(element => {
-    element.addEventListener('keyup', () => {
+    element.addEventListener('click', () => {
         // On passe direct la collection
         passwordMatchChecker(inscriptionPassWordsCheckUI);
     });
@@ -150,7 +150,7 @@ function displayForm(boolParam) {
     // infoBoxUI.style.display= boolParam ? 'none' : 'block';
     formConnexionUI.style.display = boolParam ? 'none' : 'block';
     formInscriptionUI.style.display = boolParam ? 'block' : 'none';
-    messageCo.innerHTML ='';
+    // messageCo.innerHTML ='';
     formTitleUI.innerText = boolParam ? `Inscription` : 'Connexion';
     checkBoxLabelUI.innerText = boolParam ? `Vous avez déjà un compte ?` : 'Pas encore inscrit ?';
 };

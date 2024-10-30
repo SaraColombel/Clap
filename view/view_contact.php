@@ -29,7 +29,7 @@
                 </div>
                 <button type="submit" name="submit" class="btn btn-warning ">Envoyer</button>
             </form>
-            <p id="message" class="mb-4"><?php echo $message ?></p>
+            <p id="message" class="mb-4 mt-3"><?php echo $message ?></p>
         </div>
     </div>
 </div>

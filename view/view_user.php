@@ -6,8 +6,7 @@
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                 <label id="checkboxLabel" style="margin-bottom:10px;" class="form-check-label"
-                    for="flexSwitchCheckDefault">Default switch checkbox
-                    input</label>
+                    for="flexSwitchCheckDefault"></label>
             </div>
             <!-- Formulaire Connexion -->
             <form id="connexionForm" class="p-4 rounded" style="background-color:#2B3035;" method="post" action = "">
@@ -21,7 +20,7 @@
                 </div>
                 <button type="submit" name="connexion" class="btn btn-warning mt-2">Se connecter</button>
             </form>
-            <p id="messageCo"><?php echo $messageCo ?></p>
+            <p id="messageCo"><?php echo "bonjour" ?></p>
             <!-- Fin du formulaire de connexion -->
 
             <!-- Formulaire d'inscription -->
@@ -54,10 +53,9 @@
                 </div>
                 <button type="submit" class="btn text-white" name="submit" style="background-color: #2B3035; ">S'inscrire</button>
             </form>
-            <div id="infoBox" class="mt-3">
-                <div id="securityInfo"><p><?php echo $message ?></p>
-                </div>
-            </div>
+            <div id="securityInfo" class="mt-3"></div>
+                <p style="position:absolute"><?php echo $messageCo ?></p>
+                <p style="position:absolute"><?php echo $message ?></p>
             <!-- Fin du formulaire d'inscription -->
         </div>
 
