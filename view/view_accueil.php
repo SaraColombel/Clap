@@ -120,7 +120,7 @@
                                     <div class="card">
                                         <img class="img-fluid rounded-top" alt="100%x280" src="./img/forestGump.jpg">
                                         <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Forest Gump</h7>
+                                            <h7 class="card-title">Forrest Gump</h7>
                                             <p class="card-text">1994</p>
                                         </div>
                                     </div>
@@ -150,7 +150,7 @@
                                     <div class="card">
                                         <img class="img-fluid rounded-top" alt="100%x280" src="./img/forestGump.jpg">
                                         <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Forest Gump</h7>
+                                            <h7 class="card-title">Forrest Gump</h7>
                                             <p class="card-text">1994</p>
                                         </div>
                                     </div>
