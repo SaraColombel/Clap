@@ -1,69 +1,67 @@
-<div id="app" class="container-fluid min-vh-100">
-    <!-- Section de héros main call to action -->
-    <div class="container-fluid p-3">
-        <div class="row">
-            <div class="col-6  p-3">
-                <form class="m-3 bg-info p-3" id="add-user-form">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Nom</label>
-                        <input data-key="name" type="text" class="user-input form-control" placeholder="Nom">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Durée</label>
-                        <input data-key="age" type="text" class="user-input form-control" placeholder="Minutes">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Note</label>
-                        <input data-key="mail" type="email" class="user-input form-control" placeholder="Étoiles">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Réalisateur</label>
-                        <input data-key="mail" type="email" class="user-input form-control" placeholder="Réalisateur">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Acteurs</label>
-                        <input data-key="mail" type="email" class="user-input form-control" placeholder="Acteurs">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Description</label>
-                        <input data-key="mail" type="email" class="user-input form-control" placeholder="Description">
-                    </div>
-                    <button id="add-user-btn" type="submit" class="btn btn-primary">Ajouter</button>
-                </form>
+<div class="container-fluid text-center">
+    <h1>Création d'article de blog</h1>
+    <div class="row d-flex justify-content-center mt-2">
+        <div class="col-1">
+            <button id="petit">Petit</button>
+        </div>
+        <div class="col-1">
+            <button id="moyen">Moyen</button>
+        </div>
+        <div class="col-1">
+            <button id="grand">Grand</button>
+        </div>
+    </div>
+</div>
 
-                <form class="m-3 bg-primary p-3" id="edit-user-module">
-                    <div class="mb-3">
-                        <input data-key="name" type="text" class="edit-userid form-control" hidden>
-                        <label for="exampleFormControlInput1" class="form-label">Nom</label>
-                        <input data-key="name" type="text" class="edit-user-input form-control" placeholder="name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Âge</label>
-                        <input data-key="age" type="text" class="edit-user-input form-control" placeholder="age">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Mail</label>
-                        <input data-key="mail" type="email" class="edit-user-input form-control" placeholder="email">
-                    </div>
-                    <button id="edit-user-btn" type="submit" class="btn btn-success">Modifier</button>
-                </form>
+<div id="pageCreationArticlePetit" class="container-fluid mt-3 ms-2 p-5" style="border:solid 3px #D2D2D2;">
+    <div class="row d-flex justify-content-center">
+        <div class="col-4 p-0" id="titrepetit">
+            <input type="text" name="Titre" placeholder="Titre" minlength="3">
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center mt-5" style="height:350px;">
+        <div class="col-3 d-flex justify-self-center align-items-center me-3" id="img1Petit"
+            style="border:solid 3px grey">
+            <input type="file" name="blogImg" accept="image/*" class="m-auto w-75">
+        </div>
+        <div class="col-5">
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="titreSect1" placeholder="Titre de la section"></input>
+                </div>
             </div>
-            <div class="col-6 bg-light p-3">
-                <div class="card text-center">
-                    <div class="card-header">
-                        Détails Utilisateur
-                    </div>
-                    <div id="user-detail" class="card-body">
-                        <h5 class="card-title">Veuillez sélectionner un utilisateur</h5>
-                    </div>
+            <div class="row mt-2" style="height:100%;">
+                <div class="col">
+                    <textarea style="height:300px;">Votre texte ...</textarea>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col m-3">
-                <h3>Liste des Utilisateurs : </h3>
-                <ul id="user-list" class="list-group"></ul>
+    </div>
+
+
+    <div class="row d-flex justify-content-center mt-5" style="height:350px;">
+    <div class="col-5">
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="titreSect1" placeholder="Titre de la section"></input>
+                </div>
+            </div>
+            <div class="row mt-2" style="height:100%;">
+                <div class="col">
+                    <textarea style="height:300px;">Votre texte ...</textarea>
+                </div>
             </div>
         </div>
+        <div class="col-3 d-flex justify-self-center align-items-center me-3" id="img1Petit"
+            style="border:solid 3px grey">
+            <input type="file" name="blogImg" accept="image/*" class="m-auto w-75">
+        </div>
     </div>
-    </body>
+</div>
+
+
+
+
+
+</body>
