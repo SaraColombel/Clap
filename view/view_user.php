@@ -20,7 +20,7 @@
                 </div>
                 <button type="submit" name="connexion" class="btn btn-warning mt-2">Se connecter</button>
             </form>
-            <p id="messageCo"><?php echo "bonjour" ?></p>
+            <p id="messageCo"></p>
             <!-- Fin du formulaire de connexion -->
 
             <!-- Formulaire d'inscription -->

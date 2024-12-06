@@ -141,9 +141,10 @@ if(isset($_POST['connexion'])){
 
 if(isset($_SESSION['id_utilisateur'])){
     $colorContact = '#ffc107';
+    $deconnexion = "";
 } else if (!isset($_SESSION['id_utilisateur'])){
     $colorContact = 'white';
-}
+    $deconnexion = "none";}
 
 
 

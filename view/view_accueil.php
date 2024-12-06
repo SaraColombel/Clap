@@ -13,8 +13,35 @@
                     aria-expanded="false">
                     Genre
                 </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
+                <ul class="dropdown-menu" id="apiGenres">
+                    <script>
+                        const apiKey = '9ee5cc91c2cb960c4d474ee80a467bc1';
+                        const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=fr-FR`;
+
+                        const excludedGenres = ["Téléfilm", "Musique", "Documentaire"];
+
+                        fetch(url)
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Erreur HTTP ' + response.status);
+                                }
+                                return response.json();
+                            })
+                            .then(data => {
+                                const genresDiv = document.getElementById('apiGenres');
+
+                                data.genres
+                                    .filter(genre => !excludedGenres.includes(genre.name))
+                                    .forEach(genre => {
+                                        // Crée un élément pour chaque genre
+                                        const genreElement = document.createElement('div');
+                                        genreElement.innerHTML = `<li><a class="dropdown-item" href="#">${genre.name}</a></li>`;
+                                        genresDiv.appendChild(genreElement);
+                                    });
+                            })
+                            .catch(error => console.error('Erreur :', error));
+                    </script>
+                    <!-- <li><a class="dropdown-item" href="#">Action</a></li>
                     <li><a class="dropdown-item" href="#">Aventure</a></li>
                     <li><a class="dropdown-item" href="#">Comédie</a></li>
                     <li><a class="dropdown-item" href="#">Drame</a></li>
@@ -23,7 +50,7 @@
                     <li><a class="dropdown-item" href="#">Policier</a></li>
                     <li><a class="dropdown-item" href="#">Horreur</a></li>
                     <li><a class="dropdown-item" href="#">Western</a></li>
-                    <li><a class="dropdown-item" href="#">Science-fiction</a></li>
+                    <li><a class="dropdown-item" href="#">Science-fiction</a></li> -->
                 </ul>
 
                 <button class="btn btn-warning dropdown-toggle me-2" type="button" data-bs-toggle="dropdown"
@@ -81,6 +108,7 @@
 </div>
 <!-- Fin dropdown buttons -->
 
+
 <!-- Début carroussel 1 -->
 <section class="pt-3 pb-4">
     <div class="container-fluid">
@@ -111,328 +139,58 @@
 
             <div class="col-6">
                 <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
+                    <div class="carousel-inner" id="carousel-inner">
+                        <script>
+                            const topRatedUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=fr-FR`;
 
-                        <div class="carousel-item active">
-                            <div class="row d-flex justify-content-center text-center">
+                            fetch(topRatedUrl)
+                                .then(response => response.json())
+                                .then(data => {
+                                    const movies = data.results;
+                                    const carouselContainer = document.getElementById('carousel-inner');
 
-                                <div class="col-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/forestGump.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Forrest Gump</h7>
-                                            <p class="card-text">1994</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                    let activeSet = false; // Pour gérer la classe "active" du carousel
 
-                                <div class="col-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/laLigneVerte.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">La Ligne Verte</h7>
-                                            <p class="card-text">1999</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                    // Organiser les films en groupes de 4 (pour le carousel)
+                                    const groupedMovies = [];
+                                    for (let i = 0; i < movies.length; i += 4) {
+                                        groupedMovies.push(movies.slice(i, i + 4));
+                                    }
 
-                                <div class="col-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/leParrain.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Le Parrain</h7>
-                                            <p class="card-text">1972</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                    groupedMovies.forEach((movieGroup, index) => {
+                                        const carouselItem = document.createElement('div');
+                                        carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`; // Active pour le premier groupe
 
-                                <div class="col-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/forestGump.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Forrest Gump</h7>
-                                            <p class="card-text">1994</p>
-                                        </div>
-                                    </div>
+                                        const rowDiv = document.createElement('div');
+                                        rowDiv.className = 'row d-flex justify-content-center text-center';
+
+                                        movieGroup.forEach(movie => {
+                                            const colDiv = document.createElement('div');
+                                            colDiv.className = 'col-3 mb-3';
+
+                                            const movieCard = `
+                            <div class="card">
+                                <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+                                <div class="card-body bg-dark text-white rounded-bottom" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    <h7 class="card-title " >${movie.title}</h7>
+                                    <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
+                                                                        <p style="font-size:17px; color:#ffc107; font-weight:200; text-decoration:underline;" class="m-0">(${movie.vote_average.toFixed(1)})</p>
                                 </div>
                             </div>
+                        `;
+                                            colDiv.innerHTML = movieCard;
+                                            rowDiv.appendChild(colDiv);
+                                        });
 
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="row d-flex justify-content-center text-center">
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="./img/borderlands.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Borderlands</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/lesEvades.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Les Évadés</h7>
-                                            <p class="card-text">1994</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/enemy.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Enemy</h7>
-                                            <p class="card-text">2013</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="./img/borderlands.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Borderlands</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="row d-flex justify-content-center text-center">
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="./img/borderlands.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Borderlands</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/lesEvades.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Les Évadés</h7>
-                                            <p class="card-text">1994</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/enemy.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Enemy</h7>
-                                            <p class="card-text">2013</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="./img/borderlands.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Borderlands</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+                                        carouselItem.appendChild(rowDiv);
+                                        carouselContainer.appendChild(carouselItem);
+                                    });
+                                })
+                                .catch(error => console.error('Erreur lors de la récupération des films :', error));
+                        </script>
                     </div>
 </section>
 <!-- Fin carroussel 1 -->
-
-<!-- Début carroussel 2-->
-<section class="pb-4">
-    <div class="container-fluid">
-
-        <div class="row d-flex justify-content-center">
-
-            <div class="col-3"></div>
-
-            <div class="col-5">
-                <h4 class="mb-3 border-bottom border-dark border-2">Nouveautés</h4>
-            </div>
-
-            <div class="col-1 text-right d-flex">
-                <a class="btn btn-dark mb-3 me-2" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                    <i class="bi bi-arrow-left"></i>
-                </a>
-                <a class="btn btn-dark mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
-                    <i class="bi bi-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="col-3"></div>
-        </div>
-
-        <div class="row d-flex justify-content-center">
-
-            <div class="col-3"></div>
-
-            <div class="col-6">
-                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-
-                        <div class="carousel-item active">
-                            <div class="row d-flex justify-content-center text-center">
-
-                                <div class="col-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/theUnion.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="">The Union</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/civilWar.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Civil War</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280"
-                                            src="./img/theInvestigators.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">The Investiga...</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/theUnion.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="">The Union</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="row d-flex justify-content-center text-center">
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="./img/borderlands.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Borderlands</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/lesEvades.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Les Évadés</h7>
-                                            <p class="card-text">1994</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/enemy.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Enemy</h7>
-                                            <p class="card-text">2013</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="./img/borderlands.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Borderlands</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="row d-flex justify-content-center text-center">
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="./img/borderlands.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Borderlands</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/lesEvades.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Les Évadés</h7>
-                                            <p class="card-text">1994</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/enemy.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Enemy</h7>
-                                            <p class="card-text">2013</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="./img/borderlands.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Borderlands</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3"></div>
-
-        </div>
-    </div>
-</section>
-<!-- Fin carroussel 2 -->
 
 <!-- Début carroussel 3-->
 <section class="pb-4">
@@ -443,7 +201,7 @@
             <div class="col-3"></div>
 
             <div class="col-5">
-                <h4 class="mb-3 border-bottom border-dark border-2">Nos favoris</h4>
+                <h4 class="mb-3 border-bottom border-dark border-2">Nouveautés</h4>
             </div>
 
             <div class="col-1 text-right d-flex">
@@ -464,146 +222,56 @@
 
             <div class="col-6">
                 <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
+                    <div class="carousel-inner" id="carousel-inner3">
 
-                        <div class="carousel-item active">
-                            <div class="row d-flex justify-content-center text-center">
+                        <script>
+                            const nowPlayingUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=fr-FR`;
 
-                                <div class="col-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/theUnion.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="">The Union</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
+                            fetch(nowPlayingUrl)
+                                .then(response => response.json())
+                                .then(data => {
+                                    const movies = data.results;
+                                    const carouselContainer = document.getElementById('carousel-inner3');
+
+                                    let activeSet = false; // Pour gérer la classe "active" du carousel
+
+                                    // Organiser les films en groupes de 4 (pour le carousel)
+                                    const groupedMovies = [];
+                                    for (let i = 0; i < movies.length; i += 4) {
+                                        groupedMovies.push(movies.slice(i, i + 4));
+                                    }
+
+                                    groupedMovies.forEach((movieGroup, index) => {
+                                        const carouselItem = document.createElement('div');
+                                        carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`; // Active pour le premier groupe
+
+                                        const rowDiv = document.createElement('div');
+                                        rowDiv.className = 'row d-flex justify-content-center text-center';
+
+                                        movieGroup.forEach(movie => {
+                                            const colDiv = document.createElement('div');
+                                            colDiv.className = 'col-3 mb-3';
+
+                                            const movieCard = `
+                            <div class="card">
+                                <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+                                <div class="card-body bg-dark text-white rounded-bottom" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    <h7 class="card-title " >${movie.title}</h7>
+                                    <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
+                                                                        <p style="font-size:17px; color:#ffc107; font-weight:200; text-decoration:underline;" class="m-0">(${movie.vote_average.toFixed(1)})</p>
                                 </div>
-
-                                <div class="col-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/civilWar.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Civil War</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280"
-                                            src="./img/theInvestigators.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">The Investiga...</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/theUnion.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="">The Union</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
-                        </div>
+                        `;
+                                            colDiv.innerHTML = movieCard;
+                                            rowDiv.appendChild(colDiv);
+                                        });
 
-                        <div class="carousel-item">
-                            <div class="row d-flex justify-content-center text-center">
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="./img/borderlands.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Borderlands</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/lesEvades.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Les Évadés</h7>
-                                            <p class="card-text">1994</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/enemy.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Enemy</h7>
-                                            <p class="card-text">2013</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="./img/borderlands.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Borderlands</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="row d-flex justify-content-center text-center">
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="./img/borderlands.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Borderlands</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/lesEvades.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Les Évadés</h7>
-                                            <p class="card-text">1994</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid rounded-top" alt="100%x280" src="./img/enemy.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Enemy</h7>
-                                            <p class="card-text">2013</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="./img/borderlands.jpg">
-                                        <div class="card-body bg-dark text-white rounded-bottom">
-                                            <h7 class="card-title">Borderlands</h7>
-                                            <p class="card-text">2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+                                        carouselItem.appendChild(rowDiv);
+                                        carouselContainer.appendChild(carouselItem);
+                                    });
+                                })
+                                .catch(error => console.error('Erreur lors de la récupération des films :', error));
+                        </script>
 
                     </div>
                 </div>
@@ -615,6 +283,96 @@
     </div>
 </section>
 <!-- Fin carroussel 3 -->
+
+<!-- Début carroussel 2-->
+<section class="pb-4">
+    <div class="container-fluid">
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-3"></div>
+
+            <div class="col-5">
+                <h4 class="mb-3 border-bottom border-dark border-2">À venir</h4>
+            </div>
+
+            <div class="col-1 text-right d-flex">
+                <a class="btn btn-dark mb-3 me-2" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <a class="btn btn-dark mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="col-3"></div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-3"></div>
+
+            <div class="col-6">
+                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" id="carousel-inner2">
+                        <script>
+                            const upComingUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=fr-FR`;
+
+                            fetch(upComingUrl)
+                                .then(response => response.json())
+                                .then(data => {
+                                    const movies = data.results;
+                                    const carouselContainer = document.getElementById('carousel-inner2');
+
+                                    let activeSet = false; // Pour gérer la classe "active" du carousel
+
+                                    // Organiser les films en groupes de 4 (pour le carousel)
+                                    const groupedMovies = [];
+                                    for (let i = 0; i < movies.length; i += 4) {
+                                        groupedMovies.push(movies.slice(i, i + 4));
+                                    }
+
+                                    groupedMovies.forEach((movieGroup, index) => {
+                                        const carouselItem = document.createElement('div');
+                                        carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`; // Active pour le premier groupe
+
+                                        const rowDiv = document.createElement('div');
+                                        rowDiv.className = 'row d-flex justify-content-center text-center';
+
+                                        movieGroup.forEach(movie => {
+                                            const colDiv = document.createElement('div');
+                                            colDiv.className = 'col-3 mb-3';
+
+                                            const movieCard = `
+                            <div class="card">
+                                <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+                                <div class="card-body bg-dark text-white rounded-bottom" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    <h7 class="card-title " >${movie.title}</h7>
+                                    <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
+                                                                        <p style="font-size:17px; color:#ffc107; font-weight:200; text-decoration:underline;" class="m-0">(${movie.vote_average.toFixed(1)})</p>
+                                </div>
+                            </div>
+                        `;
+                                            colDiv.innerHTML = movieCard;
+                                            rowDiv.appendChild(colDiv);
+                                        });
+
+                                        carouselItem.appendChild(rowDiv);
+                                        carouselContainer.appendChild(carouselItem);
+                                    });
+                                })
+                                .catch(error => console.error('Erreur lors de la récupération des films :', error));
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3"></div>
+
+        </div>
+    </div>
+</section>
+<!-- Fin carroussel 2 -->
 
 <!-- Début blog -->
 <div class="container-fluid pb-4">

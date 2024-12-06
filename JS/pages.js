@@ -129,7 +129,7 @@ function displayErrorMessages() {
         let combinedMsg = '';
         if (errorMsg.mailMsg) combinedMsg += errorMsg.mailMsg;
         if (errorMsg.passwordMsg) combinedMsg += errorMsg.passwordMsg;
-        if (errorMsg.xssMsg) combinedMsg += errorMsg.xssMsg; // Ajout de la gestion du message XSS
+        if (errorMsg.xssMsg) combinedMsg += errorMsg.xssMsg;
         infoBoxUI.innerHTML = combinedMsg;
         infoBoxUI.style.display = combinedMsg ? 'block' : 'none';
 }
@@ -139,21 +139,18 @@ const checkBoxFormUI = document.querySelector('#flexSwitchCheckDefault');
 
 checkBoxFormUI.addEventListener('click', () => {
     selectedForm = !selectedForm;
-    displayForm(selectedForm);
-});
+    displayForm(selectedForm);});
+
 function displayForm(boolParam) {
     formConnexionUI.reset();
     formInscriptionUI.reset();
     infoBoxUI.innerHTML='';
     allEmailInputsUI.forEach(input => { input.style.backgroundColor = '';});
     connexionInputPasswordUI.style.backgroundColor = '';
-    // infoBoxUI.style.display= boolParam ? 'none' : 'block';
     formConnexionUI.style.display = boolParam ? 'none' : 'block';
     formInscriptionUI.style.display = boolParam ? 'block' : 'none';
-    // messageCo.innerHTML ='';
     formTitleUI.innerText = boolParam ? `Inscription` : 'Connexion';
-    checkBoxLabelUI.innerText = boolParam ? `Vous avez déjà un compte ?` : 'Pas encore inscrit ?';
-};
+    checkBoxLabelUI.innerText = boolParam ? `Vous avez déjà un compte ?` : 'Pas encore inscrit ?';};
 
 
 // const p1 = document.querySelector('.p1');
