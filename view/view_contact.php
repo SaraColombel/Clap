@@ -8,8 +8,7 @@
                     <img src="./img/logo.png" style="width:98%" class="img-fluid rounded mt-1">
                 </div>
                 <div class="col-8">
-                    <p>Merci de votre visite sur notre site ! Nous sommes à votre disposition pour répondre à toutes vos
-                        questions, vous fournir des informations supplémentaires ou simplement recevoir vos suggestions.
+                    <p>Merci de votre visite sur notre site ! Nous sommes à votre disposition pour répondre à toutes vos questions, vous fournir des informations supplémentaires ou simplement recevoir vos suggestions.
                     </p>
                 </div>
             </div>

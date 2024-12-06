@@ -47,7 +47,8 @@
                                 <a class="nav-link <?php echo $displayBlog ?>" href="controler_blog.php">Blog</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link <?php echo $displayContact ?>" href="controler_contact.php">Contact</a>
+                                <a class="nav-link <?php echo $displayContact ?>"
+                                    href="controler_contact.php">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -65,9 +66,14 @@
                     </div>
                 </div>
 
-                <div class="col-3 text-end">
+                <div class="col-3 text-end d-flex">
+                    <a class="nav-link" href="controler_deco.php">
+                        <i class="bi bi-box-arrow-right" style="font-size : 40px; margin-left: 300px; color: white; display: <?php echo $deconnexion ?>;"></i>
+                    </a>
+
                     <a href="controler_user.php">
-                        <i class="bi bi-person-circle" style="font-size : 40px; color : <?php echo $colorContact ?>; margin-left:250px;"></i>
+                        <i class="bi bi-person-circle"
+                            style="font-size : 40px; color : <?php echo $colorContact ?>;"></i>
                     </a>
                 </div>
             </div>
@@ -76,6 +82,5 @@
 
 
     </nav>
-    
-    <a class="nav-link" href="controler_deco.php">Déconnexion</a>
+
     <!-- Fin navbar -->
