@@ -18,6 +18,19 @@
   }
 }
 
+.card{
+  min-height: 414px;
+}
+
+.card-body{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color:#2B3035;
+  align-content: center;
+  padding: 15px !important;
+}
+
 /* a {
   font-weight: 500;
   color: #646cff;

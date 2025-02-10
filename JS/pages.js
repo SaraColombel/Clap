@@ -181,3 +181,104 @@ function displayForm(boolParam) {
 //     p2.style.display = "block";
 //     p1.style.display = "none";
 // })
+const apiKey = '9ee5cc91c2cb960c4d474ee80a467bc1';
+
+const apiLinks = new Map ([
+    ["topRatedUrl", "https://api.themoviedb.org/3/movie/top_rated?api_key=" + apiKey + "&language=fr-FR"],
+    ["nowPlayingUrl", "https://api.themoviedb.org/3/movie/now_playing?api_key=$" + apiKey + "&language=fr-FR"]
+    ["upComingUrl", "https://api.themoviedb.org/3/movie/upcoming?api_key=" + apiKey + "&language=fr-FR"]
+]);
+
+
+
+for(const value of apiLinks.values()){
+    fetch(value)
+    .then(response => response.json())
+    .then(data => {
+        const movies = data.results;
+        const carouselContainer = document.getElementById('carousel-inner');
+
+        let activeSet = false; // Pour gérer la classe "active" du carousel
+
+        // Organiser les films en groupes de 4 (pour le carousel)
+        const groupedMovies = [];
+        for (let i = 0; i < movies.length; i += 4) {
+            groupedMovies.push(movies.slice(i, i + 4));
+        }
+
+        groupedMovies.forEach((movieGroup, index) => {
+            const carouselItem = document.createElement('div');
+            carouselItem.className = "carousel-item" + index === 0 ? 'active' : ''; // Active pour le premier groupe
+
+            const rowDiv = document.createElement('div');
+            rowDiv.className = 'row d-flex justify-content-center text-center';
+
+            movieGroup.forEach(movie => {
+                const colDiv = document.createElement('div');
+                colDiv.className = 'col-3 mb-3';
+
+                const movieCard = `
+                    <div class="card">
+                        <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+                        <div class="card-body text-white rounded-bottom">
+                            <h7 class="card-title " >${movie.title}</h7>
+                            <p class="card-text m-0" style="font-weight:250; font-size:17px">${new Date(movie.release_date).getFullYear()}</p>
+                            <p style="font-size:17px; color:#ffc107; font-weight:200; text-decoration:underline;" class="m-0">(${movie.vote_average.toFixed(1)})</p>
+                        </div>
+                    </div>`;
+                colDiv.innerHTML = movieCard;
+                rowDiv.appendChild(colDiv);
+            });
+
+            carouselItem.appendChild(rowDiv);
+            carouselContainer.appendChild(carouselItem);
+        });
+    })
+    .catch(error => console.error('Erreur lors de la récupération des films :', error));
+}
+
+
+
+
+const carrousselDiv = document.getElementById("carroussels");
+
+
+function carrousselHTML() {
+    const carroussel = `<section class="pt-3 pb-4">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            <div class="col-3"></div>
+            <div class="col-5">
+                <h4 class="mb-3 border-bottom border-dark border-2">Les mieux notés</h4>
+            </div>
+            <div class="col-1 text-right d-flex">
+                <a class="btn btn-dark mb-3 me-2" href="#carouselExampleIndicators1" role="button" data-slide="prev">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <a class="btn btn-dark mb-3 " href="#carouselExampleIndicators1" role="button" data-slide="next">
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-3"></div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-3"></div>
+
+            <div class="col-6">
+                <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" id="carousel-inner">
+                        <script>
+                            
+                        </script>
+                    </div>
+</section>`
+
+    for(i=0; i < 4; i++){
+        carrousselDiv.appendChild(carroussel);
+    }
+}
+
+
+

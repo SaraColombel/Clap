@@ -108,19 +108,16 @@
 </div>
 <!-- Fin dropdown buttons -->
 
+<div id="carroussels"></div>
 
 <!-- Début carroussel 1 -->
 <section class="pt-3 pb-4">
     <div class="container-fluid">
-
         <div class="row d-flex justify-content-center">
-
             <div class="col-3"></div>
-
             <div class="col-5">
                 <h4 class="mb-3 border-bottom border-dark border-2">Les mieux notés</h4>
             </div>
-
             <div class="col-1 text-right d-flex">
                 <a class="btn btn-dark mb-3 me-2" href="#carouselExampleIndicators1" role="button" data-slide="prev">
                     <i class="bi bi-arrow-left"></i>
@@ -129,7 +126,6 @@
                     <i class="bi bi-arrow-right"></i>
                 </a>
             </div>
-
             <div class="col-3"></div>
         </div>
 
@@ -171,9 +167,9 @@
                                             const movieCard = `
                             <div class="card">
                                 <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
-                                <div class="card-body bg-dark text-white rounded-bottom" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                <div class="card-body text-white rounded-bottom">
                                     <h7 class="card-title " >${movie.title}</h7>
-                                    <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
+                                    <p class="card-text m-0" style="font-weight:250; font-size:17px">${new Date(movie.release_date).getFullYear()}</p>
                                                                         <p style="font-size:17px; color:#ffc107; font-weight:200; text-decoration:underline;" class="m-0">(${movie.vote_average.toFixed(1)})</p>
                                 </div>
                             </div>
@@ -255,9 +251,9 @@
                                             const movieCard = `
                             <div class="card">
                                 <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
-                                <div class="card-body bg-dark text-white rounded-bottom" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                <div class="card-body text-white rounded-bottom">
                                     <h7 class="card-title " >${movie.title}</h7>
-                                    <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
+                                    <p class="card-text m-0" style="font-weight:250; font-size:17px">${new Date(movie.release_date).getFullYear()}</p>
                                                                         <p style="font-size:17px; color:#ffc107; font-weight:200; text-decoration:underline;" class="m-0">(${movie.vote_average.toFixed(1)})</p>
                                 </div>
                             </div>
@@ -346,9 +342,9 @@
                                             const movieCard = `
                             <div class="card">
                                 <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
-                                <div class="card-body bg-dark text-white rounded-bottom" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                                    <h7 class="card-title " >${movie.title}</h7>
-                                    <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
+                                <div class="card-body text-white rounded-bottom">
+                                    <h7 class="card-title" >${movie.title}</h7>
+                                    <p class="card-text m-0" style="font-weight:250; font-size:17px">${new Date(movie.release_date).getFullYear()}</p>
                                                                         <p style="font-size:17px; color:#ffc107; font-weight:200; text-decoration:underline;" class="m-0">(${movie.vote_average.toFixed(1)})</p>
                                 </div>
                             </div>
@@ -390,7 +386,7 @@
             <div class="col-4 me-2" style="width: 32%;">
                 <div class="card">
                     <img src="./img/blogLOR.jpg" class="card-img-top" alt="...">
-                    <div class="card-body bg-dark text-white rounded-bottom">
+                    <div class="card-body text-white rounded-bottom" style="background-color:#2B3035;">
                         <h5 class="card-title">Le Seigneur des Anneaux</h5>
                         <p class="card-text" style="font-weight: lighter;">Le Seigneur des anneaux (The Lord of the
                             Rings) est un roman de J. R. R. Tolkien paru en trois volumes...</p>
@@ -403,7 +399,7 @@
             <div class="col-4 me-2" style="width: 32%;">
                 <div class="card">
                     <img src="./img/quentinTarantino.jpg" class="card-img-top" alt="...">
-                    <div class="card-body bg-dark text-white rounded-bottom">
+                    <div class="card-body text-white rounded-bottom" style="background-color:#2B3035;">
                         <h5 class="card-title">Quentin Tarantino</h5>
                         <p class="card-text" style="font-weight: lighter;">Quentin Tarantino, né le 27 mars 1963 à
                             Knoxville (Tennessee, États-Unis), est un réalisateur, scénariste, producteur... </p>
@@ -416,7 +412,7 @@
             <div class="col-4" style="width: 32%;">
                 <div class="card">
                     <img src="./img/hansZimmer.jpg" class="card-img-top" alt="...">
-                    <div class="card-body bg-dark text-white rounded-bottom">
+                    <div class="card-body text-white rounded-bottom" style="background-color:#2B3035;">
                         <h5 class="card-title">Hans Zimmer</h5>
                         <p class="card-text" style="font-weight: lighter;">Hans Zimmer, né le 12 septembre 1957 à
                             Francfort(RFA), est un compositeur de musique de film et producteur...</p>
