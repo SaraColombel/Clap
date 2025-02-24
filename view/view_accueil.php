@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <!-- Début dropdown buttons -->
 <div class="container-fluid">
     <div class="row d-flex justify-content-center mt-2">
@@ -41,16 +37,6 @@
                             })
                             .catch(error => console.error('Erreur :', error));
                     </script>
-                    <!-- <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Aventure</a></li>
-                    <li><a class="dropdown-item" href="#">Comédie</a></li>
-                    <li><a class="dropdown-item" href="#">Drame</a></li>
-                    <li><a class="dropdown-item" href="#">Fantastique</a></li>
-                    <li><a class="dropdown-item" href="#">Guerre</a></li>
-                    <li><a class="dropdown-item" href="#">Policier</a></li>
-                    <li><a class="dropdown-item" href="#">Horreur</a></li>
-                    <li><a class="dropdown-item" href="#">Western</a></li>
-                    <li><a class="dropdown-item" href="#">Science-fiction</a></li> -->
                 </ul>
 
                 <button class="btn btn-warning dropdown-toggle me-2" type="button" data-bs-toggle="dropdown"
@@ -168,13 +154,32 @@
                                             const colDiv = document.createElement('div');
                                             colDiv.className = 'col-3 mb-3';
 
+                                                let rating = movie.vote_average/2;
+                                                let stars = "";
+                                                for (let i=0; i < Math.floor(rating); i++){
+                                                    stars += "<i class='bi bi-star-fill pe-1' style='color:#ffc107'></i>";
+                                                }
+
+                                                if(rating%1 >= 0.5){
+                                                    stars += "<i class='bi bi-star-half pe-1' style='color:#ffc107'></i>";
+                                                    for(let i = Math.floor(rating)+1; i < 5; i++){
+                                                    stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+                                                    }
+                                                } else {
+                                                    for(let i = Math.floor(rating); i < 5; i++){
+                                                    stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+                                                    }
+                                                }
+
+
+
                                             const movieCard = `
                             <div class="card">
                                 <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
                                 <div class="card-body bg-dark text-white rounded-bottom" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                                     <h7 class="card-title " >${movie.title}</h7>
                                     <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
-                                                                        <p style="font-size:17px; color:#ffc107; font-weight:200; text-decoration:underline;" class="m-0">(${movie.vote_average.toFixed(1)})</p>
+                                    <div style="font-weight: lighter; font-size: 14px">${stars} (${(movie.vote_average/2).toFixed(1)})</div>
                                 </div>
                             </div>
                         `;
@@ -252,13 +257,32 @@
                                             const colDiv = document.createElement('div');
                                             colDiv.className = 'col-3 mb-3';
 
+                                                let rating = movie.vote_average/2;
+                                                let stars = "";
+                                                for (let i=0; i < Math.floor(rating); i++){
+                                                    stars += "<i class='bi bi-star-fill pe-1' style='color:#ffc107'></i>";
+                                                }
+
+                                                if(rating%1 >= 0.5){
+                                                    stars += "<i class='bi bi-star-half pe-1' style='color:#ffc107'></i>";
+                                                    for(let i = Math.floor(rating)+1; i < 5; i++){
+                                                    stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+                                                    }
+                                                } else {
+                                                    for(let i = Math.floor(rating); i < 5; i++){
+                                                    stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+                                                    }
+                                                }
+
+
+
                                             const movieCard = `
-                            <div class="card">
+                            <div class="card" style="height: 100%">
                                 <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
-                                <div class="card-body bg-dark text-white rounded-bottom" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                <div class="card-body bg-dark text-white rounded-bottom " style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                                     <h7 class="card-title " >${movie.title}</h7>
                                     <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
-                                                                        <p style="font-size:17px; color:#ffc107; font-weight:200; text-decoration:underline;" class="m-0">(${movie.vote_average.toFixed(1)})</p>
+                                    <div style="font-weight: lighter; font-size: 14px">${stars} (${(movie.vote_average/2).toFixed(1)})</div>
                                 </div>
                             </div>
                         `;
@@ -343,13 +367,32 @@
                                             const colDiv = document.createElement('div');
                                             colDiv.className = 'col-3 mb-3';
 
+                                                let rating = movie.vote_average/2;
+                                                let stars = "";
+                                                for (let i=0; i < Math.floor(rating); i++){
+                                                    stars += "<i class='bi bi-star-fill pe-1' style='color:#ffc107'></i>";
+                                                }
+
+                                                if(rating%1 >= 0.5){
+                                                    stars += "<i class='bi bi-star-half pe-1' style='color:#ffc107'></i>";
+                                                    for(let i = Math.floor(rating)+1; i < 5; i++){
+                                                    stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+                                                    }
+                                                } else {
+                                                    for(let i = Math.floor(rating); i < 5; i++){
+                                                    stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+                                                    }
+                                                }
+
+
+
                                             const movieCard = `
                             <div class="card">
                                 <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
                                 <div class="card-body bg-dark text-white rounded-bottom" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                                     <h7 class="card-title " >${movie.title}</h7>
                                     <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
-                                                                        <p style="font-size:17px; color:#ffc107; font-weight:200; text-decoration:underline;" class="m-0">(${movie.vote_average.toFixed(1)})</p>
+                                    <div style="font-weight: lighter; font-size: 14px">${stars} (${(movie.vote_average/2).toFixed(1)})</div>
                                 </div>
                             </div>
                         `;

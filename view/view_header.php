@@ -1,3 +1,12 @@
+<?php
+if(isset($_SESSION['id_utilisateur'])){
+    $colorContact = '#ffc107';
+    $deconnexion = "";
+} else if (!isset($_SESSION['id_utilisateur'])){
+    $colorContact = 'white';
+    $deconnexion = "none";}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
