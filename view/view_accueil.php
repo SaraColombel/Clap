@@ -104,8 +104,330 @@
 </div>
 <!-- Fin dropdown buttons -->
 
-<div id="carousels" class="mt-3"></div>
+<!-- <div id="carousels" class="mt-3"></div> -->
 
+<!-- Début carroussel 1 -->
+<section class="pt-3 pb-4">
+    <div class="container-fluid">
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-3"></div>
+
+            <div class="col-5">
+                <h4 class="mb-3 border-bottom border-dark border-2">Les mieux notés</h4>
+            </div>
+
+            <div class="col-1 text-right d-flex">
+                <a class="btn btn-dark mb-3 me-2" href="#carouselExampleIndicators1" role="button" data-slide="prev">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <a class="btn btn-dark mb-3 " href="#carouselExampleIndicators1" role="button" data-slide="next">
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="col-3"></div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-3"></div>
+
+            <div class="col-6">
+                <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" id="carousel-inner">
+                        <script>
+                            const topRatedUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=fr-FR`;
+
+                            fetch(topRatedUrl)
+                                .then(response => response.json())
+                                .then(data => {
+                                    const movies = data.results;
+                                    const carouselContainer = document.getElementById('carousel-inner');
+
+                                    let activeSet = false; // Pour gérer la classe "active" du carousel
+
+                                    // Organiser les films en groupes de 4 (pour le carousel)
+                                    const groupedMovies = [];
+                                    for (let i = 0; i < movies.length; i += 4) {
+                                        groupedMovies.push(movies.slice(i, i + 4));
+                                    }
+
+                                    groupedMovies.forEach((movieGroup, index) => {
+                                        const carouselItem = document.createElement('div');
+                                        carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`; // Active pour le premier groupe
+
+                                        const rowDiv = document.createElement('div');
+                                        rowDiv.className = 'row d-flex justify-content-center text-center';
+
+                                        movieGroup.forEach(movie => {
+                                            const colDiv = document.createElement('div');
+                                            colDiv.className = 'col-3 mb-3';
+
+                                                let rating = movie.vote_average/2;
+                                                let stars = "";
+                                                for (let i=0; i < Math.floor(rating); i++){
+                                                    stars += "<i class='bi bi-star-fill pe-1' style='color:#ffc107'></i>";
+                                                }
+
+                                                if(rating%1 >= 0.5){
+                                                    stars += "<i class='bi bi-star-half pe-1' style='color:#ffc107'></i>";
+                                                    for(let i = Math.floor(rating)+1; i < 5; i++){
+                                                    stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+                                                    }
+                                                } else {
+                                                    for(let i = Math.floor(rating); i < 5; i++){
+                                                    stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+                                                    }
+                                                }
+
+
+
+                                            const movieCard = `
+                            <div class="card">
+                                <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+                                <div class="card-body bg-dark text-white rounded-bottom" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    <h7 class="card-title " >${movie.title}</h7>
+                                    <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
+                                    <div style="font-weight: lighter; font-size: 14px">${stars} (${(movie.vote_average/2).toFixed(1)})</div>
+                                </div>
+                            </div>
+                        `;
+                                            colDiv.innerHTML = movieCard;
+                                            rowDiv.appendChild(colDiv);
+                                        });
+
+                                        carouselItem.appendChild(rowDiv);
+                                        carouselContainer.appendChild(carouselItem);
+                                    });
+                                })
+                                .catch(error => console.error('Erreur lors de la récupération des films :', error));
+                        </script>
+                    </div>
+</section>
+<!-- Fin carroussel 1 -->
+
+<!-- Début carroussel 3-->
+<section class="pb-4">
+    <div class="container-fluid">
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-3"></div>
+
+            <div class="col-5">
+                <h4 class="mb-3 border-bottom border-dark border-2">Nouveautés</h4>
+            </div>
+
+            <div class="col-1 text-right d-flex">
+                <a class="btn btn-dark mb-3 me-2" href="#carouselExampleIndicators3" role="button" data-slide="prev">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <a class="btn btn-dark mb-3 " href="#carouselExampleIndicators3" role="button" data-slide="next">
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="col-3"></div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-3"></div>
+
+            <div class="col-6">
+                <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" id="carousel-inner3">
+
+                        <script>
+                            const nowPlayingUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=fr-FR`;
+
+                            fetch(nowPlayingUrl)
+                                .then(response => response.json())
+                                .then(data => {
+                                    const movies = data.results;
+                                    const carouselContainer = document.getElementById('carousel-inner3');
+
+                                    let activeSet = false; // Pour gérer la classe "active" du carousel
+
+                                    // Organiser les films en groupes de 4 (pour le carousel)
+                                    const groupedMovies = [];
+                                    for (let i = 0; i < movies.length; i += 4) {
+                                        groupedMovies.push(movies.slice(i, i + 4));
+                                    }
+
+                                    groupedMovies.forEach((movieGroup, index) => {
+                                        const carouselItem = document.createElement('div');
+                                        carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`; // Active pour le premier groupe
+
+                                        const rowDiv = document.createElement('div');
+                                        rowDiv.className = 'row d-flex justify-content-center text-center';
+
+                                        movieGroup.forEach(movie => {
+                                            const colDiv = document.createElement('div');
+                                            colDiv.className = 'col-3 mb-3';
+
+                                                let rating = movie.vote_average/2;
+                                                let stars = "";
+                                                for (let i=0; i < Math.floor(rating); i++){
+                                                    stars += "<i class='bi bi-star-fill pe-1' style='color:#ffc107'></i>";
+                                                }
+
+                                                if(rating%1 >= 0.5){
+                                                    stars += "<i class='bi bi-star-half pe-1' style='color:#ffc107'></i>";
+                                                    for(let i = Math.floor(rating)+1; i < 5; i++){
+                                                    stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+                                                    }
+                                                } else {
+                                                    for(let i = Math.floor(rating); i < 5; i++){
+                                                    stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+                                                    }
+                                                }
+
+
+
+                                            const movieCard = `
+                            <div class="card" style="height: 100%">
+                                <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+                                <div class="card-body bg-dark text-white rounded-bottom " style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    <h7 class="card-title " >${movie.title}</h7>
+                                    <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
+                                    <div style="font-weight: lighter; font-size: 14px">${stars} (${(movie.vote_average/2).toFixed(1)})</div>
+                                </div>
+                            </div>
+                        `;
+                                            colDiv.innerHTML = movieCard;
+                                            rowDiv.appendChild(colDiv);
+                                        });
+
+                                        carouselItem.appendChild(rowDiv);
+                                        carouselContainer.appendChild(carouselItem);
+                                    });
+                                })
+                                .catch(error => console.error('Erreur lors de la récupération des films :', error));
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3"></div>
+
+        </div>
+    </div>
+</section>
+<!-- Fin carroussel 3 -->
+
+<!-- Début carroussel 2-->
+<section class="pb-4">
+    <div class="container-fluid">
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-3"></div>
+
+            <div class="col-5">
+                <h4 class="mb-3 border-bottom border-dark border-2">À venir</h4>
+            </div>
+
+            <div class="col-1 text-right d-flex">
+                <a class="btn btn-dark mb-3 me-2" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <a class="btn btn-dark mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="col-3"></div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-3"></div>
+
+            <div class="col-6">
+                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" id="carousel-inner2">
+                        <script>
+                            const upComingUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=fr-FR`;
+
+                            fetch(upComingUrl)
+                                .then(response => response.json())
+                                .then(data => {
+                                    const movies = data.results;
+                                    const carouselContainer = document.getElementById('carousel-inner2');
+
+                                    let activeSet = false; // Pour gérer la classe "active" du carousel
+
+                                    // Organiser les films en groupes de 4 (pour le carousel)
+                                    const groupedMovies = [];
+                                    for (let i = 0; i < movies.length; i += 4) {
+                                        groupedMovies.push(movies.slice(i, i + 4));
+                                    }
+
+                                    groupedMovies.forEach((movieGroup, index) => {
+                                        const carouselItem = document.createElement('div');
+                                        carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`; // Active pour le premier groupe
+
+                                        const rowDiv = document.createElement('div');
+                                        rowDiv.className = 'row d-flex justify-content-center text-center';
+
+                                        movieGroup.forEach(movie => {
+                                            const colDiv = document.createElement('div');
+                                            colDiv.className = 'col-3 mb-3';
+
+                                                let rating = movie.vote_average/2;
+                                                let stars = "";
+                                                for (let i=0; i < Math.floor(rating); i++){
+                                                    stars += "<i class='bi bi-star-fill pe-1' style='color:#ffc107'></i>";
+                                                }
+
+                                                if(rating%1 >= 0.5){
+                                                    stars += "<i class='bi bi-star-half pe-1' style='color:#ffc107'></i>";
+                                                    for(let i = Math.floor(rating)+1; i < 5; i++){
+                                                    stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+                                                    }
+                                                } else {
+                                                    for(let i = Math.floor(rating); i < 5; i++){
+                                                    stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+                                                    }
+                                                }
+
+
+
+                                            const movieCard = `
+                            <div class="card">
+                                <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+                                <div class="card-body bg-dark text-white rounded-bottom" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    <h7 class="card-title " >${movie.title}</h7>
+                                    <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
+                                    <div style="font-weight: lighter; font-size: 14px">${stars} (${(movie.vote_average/2).toFixed(1)})</div>
+                                </div>
+                            </div>
+                        `;
+                                            colDiv.innerHTML = movieCard;
+                                            rowDiv.appendChild(colDiv);
+                                        });
+
+                                        carouselItem.appendChild(rowDiv);
+                                        carouselContainer.appendChild(carouselItem);
+                                    });
+                                })
+                                .catch(error => console.error('Erreur lors de la récupération des films :', error));
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3"></div>
+
+        </div>
+    </div>
+</section>
+<!-- Fin carroussel 2 -->
+ 
 <!-- Début blog -->
 <div class="container-fluid pb-4">
     <div class="row d-flex justify-content-center">

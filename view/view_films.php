@@ -106,7 +106,7 @@
 
         <div class="container-fluid col-6 flex-wrap" id="list"></div>
 
-        <div id="details" class="col-5" >
+        <div id="details">
         </div>
         <!-- <div class="p1">
             <div class="row">
