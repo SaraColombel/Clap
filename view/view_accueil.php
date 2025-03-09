@@ -1,6 +1,6 @@
 <!-- Début dropdown buttons -->
 <div class="container-fluid">
-    <div class="row d-flex justify-content-center mt-3">
+    <div class="row d-flex justify-content-center mt-2">
         <div class="col-3"></div>
         <div class="col-6 d-flex justify-content-start">
             <!-- Début dropdown button "Genre" -->

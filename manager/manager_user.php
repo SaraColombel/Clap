@@ -9,14 +9,14 @@ class ManagerUser extends ModelUser
     {
         $email = $this->getEmail();
         // 1 - Instantiates the PDO connection object
-        $bdd = new PDO('mysql:host=localhost;dbname=clap', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $bdd = new PDO("mysql:host={$_ENV['DBHost']};dbname={$_ENV['DBName']}", "{$_ENV['login']}", "{$_ENV['password']}", array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
         // try ... catch
         try {
             // 1. Prepare request SELECT
             $req = $bdd->prepare('SELECT id_utilisateur, pseudo, nom, prénom, email, mdp, date_inscription FROM utilisateur WHERE email = ?');
 
-            // 2. Add email in the request by associate "?" with "$email" 
+            // 2. Add email in the request by associate "?" with "$email"
             $req->bindParam(1, $email, PDO::PARAM_STR);
 
             // 3. Execute request
@@ -45,7 +45,8 @@ class ManagerUser extends ModelUser
         $mdp = $this->getMdp();
         $date = $this->getDate();
         // 1 - Instantiates the PDO connection object
-        $bdd = new PDO('mysql:host=localhost;dbname=clap', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $bdd = new PDO("mysql:host={$_ENV['DBHost']};dbname={$_ENV['DBName']}", "{$_ENV['login']}", "{$_ENV['password']}", array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+
 
         // 2 - Try ... catch
         try {
