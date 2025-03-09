@@ -94,6 +94,7 @@
 </div>
 <!-- Fin dropdown buttons -->
 
+<!-- <div id="carousels" class="mt-3"></div> -->
 
 <!-- Début carroussel 1 -->
 <section class="pt-3 pb-4">
@@ -416,7 +417,7 @@
     </div>
 </section>
 <!-- Fin carroussel 2 -->
-
+ 
 <!-- Début blog -->
 <div class="container-fluid pb-4">
     <div class="row d-flex justify-content-center">
@@ -433,7 +434,7 @@
             <div class="col-4 me-2" style="width: 32%;">
                 <div class="card">
                     <img src="./img/blogLOR.jpg" class="card-img-top" alt="...">
-                    <div class="card-body bg-dark text-white rounded-bottom">
+                    <div class="card-body text-white rounded-bottom" style="background-color:#2B3035;">
                         <h5 class="card-title">Le Seigneur des Anneaux</h5>
                         <p class="card-text" style="font-weight: lighter;">Le Seigneur des anneaux (The Lord of the
                             Rings) est un roman de J. R. R. Tolkien paru en trois volumes...</p>
@@ -446,7 +447,7 @@
             <div class="col-4 me-2" style="width: 32%;">
                 <div class="card">
                     <img src="./img/quentinTarantino.jpg" class="card-img-top" alt="...">
-                    <div class="card-body bg-dark text-white rounded-bottom">
+                    <div class="card-body text-white rounded-bottom" style="background-color:#2B3035;">
                         <h5 class="card-title">Quentin Tarantino</h5>
                         <p class="card-text" style="font-weight: lighter;">Quentin Tarantino, né le 27 mars 1963 à
                             Knoxville (Tennessee, États-Unis), est un réalisateur, scénariste, producteur... </p>
@@ -459,7 +460,7 @@
             <div class="col-4" style="width: 32%;">
                 <div class="card">
                     <img src="./img/hansZimmer.jpg" class="card-img-top" alt="...">
-                    <div class="card-body bg-dark text-white rounded-bottom">
+                    <div class="card-body text-white rounded-bottom" style="background-color:#2B3035;">
                         <h5 class="card-title">Hans Zimmer</h5>
                         <p class="card-text" style="font-weight: lighter;">Hans Zimmer, né le 12 septembre 1957 à
                             Francfort(RFA), est un compositeur de musique de film et producteur...</p>

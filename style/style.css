@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Questrial&family=Recursive:wght@300..1000&display=swap');
 
-*{
+h1, h2, h3, h4, h5, h6{
     font-family: 'Lexend';
     width: 100%;
-};
+}
+p{
+  font-family: 'Questrial';
+  width: 100%;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -16,6 +21,33 @@
   button {
     background-color: #f9f9f9;
   }
+}
+
+.card{
+  min-height: 414px;
+}
+
+.card-body{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color:#2B3035;
+  align-content: center;
+  padding: 15px !important;
+}
+
+nav{
+  z-index : 9999;
+}
+
+#details{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  background-color: #383838;
+  color: white;
+  border-radius: 2%;
 }
 
 /* a {
