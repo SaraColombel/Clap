@@ -9,6 +9,10 @@ p{
   font-family: 'Questrial';
   width: 100%;
 }
+.navbar-nav .nav-link {
+  font-family: 'Lexend';
+  font-size: 18px;
+}
 
 @media (prefers-color-scheme: light) {
   :root {

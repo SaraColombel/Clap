@@ -1,7 +1,7 @@
 <!-- Début formulaires connexion/inscription-->
-<div id="app" class="col-6 container-fluid d-flex justify-content-center pb-5 text-black">
+<div id="app" class="container-fluid justify-content-center pb-5 text-black">
     <div class="row justify-content-center">
-        <div class="col-8">
+        <div class="col-4">
             <h2 id="formTitle" class="text-center mb-4 mt-4"></h2>
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">

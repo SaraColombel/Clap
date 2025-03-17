@@ -39,8 +39,8 @@ fetch(apiLink)
             <div class="card">
                 <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
                 <div class="card-body text-white rounded-bottom">
-                    <h7 class="card-title " >${movie.title}</h7>
-                    <p class="card-text m-0" style="font-weight:250; font-size:17px">${new Date(movie.release_date).getFullYear()}</p>
+                    <h7 class="card-title"  style="font-weight:250; font-size:17px">${movie.title}</h7>
+                    <p class="card-text m-0" style="font-weight:150; font-size:16px">${new Date(movie.release_date).getFullYear()}</p>
                     <div style="font-weight: lighter; font-size: 14px">${stars} (${(movie.vote_average/2).toFixed(1)})
                     </div>
                 </div>

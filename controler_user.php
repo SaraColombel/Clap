@@ -130,7 +130,7 @@ if(isset($_POST['connexion'])){
                     $_SESSION['nom'] = $data[0]['nom'];
                     $_SESSION['prenom'] = $data[0]['prénom'];
                     $_SESSION['email'] = $data[0]['email'];
-                
+
                     $messageCo = "Bienvenue {$_SESSION['prenom']} !";
 
                 }
@@ -138,6 +138,9 @@ if(isset($_POST['connexion'])){
         }
     }
 }
+
+$deconnexion = "none";
+
 
 if(isset($_SESSION['id_utilisateur'])){
     $colorContact = '#ffc107';
