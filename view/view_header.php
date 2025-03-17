@@ -87,7 +87,7 @@
         <div class="container-fluid pe-0">
             <div class="row d-flex justify-content-between align-items-center w-100">
                 <!-- Logo -->
-                <div class="col-3">
+                <div class="col-3 ps-3">
                     <a class="navbar-brand text-warning" href="controler_accueil.php">
                         <img class="w-25" src="./img/logo2.png" alt="Logo">
                     </a>
@@ -108,16 +108,16 @@
                                 <a class="nav-link <?php echo $displayAccueil ?>" aria-current="page"
                                     href="controler_accueil.php">Accueil</a>
                             </li>
-                            <li class="nav-item me-2">
+                            <li class="nav-item me-2 ms-2">
                                 <a class="nav-link <?php echo $displayFilms ?>" href="controler_films.php">Films</a>
                             </li>
-                            <li class="nav-item me-2">
+                            <li class="nav-item me-2 ms-2">
                                 <a class="nav-link <?php echo $displaySeries ?>" href="#">Séries</a>
                             </li>
-                            <li class="nav-item me-2">
+                            <li class="nav-item me-2 ms-2">
                                 <a class="nav-link <?php echo $displayBlog ?>" href="controler_blog.php">Blog</a>
                             </li>
-                            <li class="nav-item me-2">
+                            <li class="nav-item me-2 ms-2">
                                 <a class="nav-link <?php echo $displayContact ?>"
                                     href="controler_contact.php">Contact</a>
                             </li>
