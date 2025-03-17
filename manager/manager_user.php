@@ -14,7 +14,7 @@ class ManagerUser extends ModelUser
         // try ... catch
         try {
             // 1. Prepare request SELECT
-            $req = $bdd->prepare('SELECT id_utilisateur, pseudo, nom, prénom, email, mdp, date_inscription FROM utilisateur WHERE email = ?');
+            $req = $bdd->prepare('SELECT id_utilisateur, pseudo, nom, prenom, email, mdp, date_inscription FROM utilisateur WHERE email = ?');
 
             // 2. Add email in the request by associate "?" with "$email"
             $req->bindParam(1, $email, PDO::PARAM_STR);
@@ -52,7 +52,7 @@ class ManagerUser extends ModelUser
         try {
 
             // 1. Prepare request
-            $req = $bdd->prepare('INSERT INTO utilisateur (pseudo, nom, prénom, email, mdp, date_inscription) VALUES (?, ?, ?, ?, ?, ?)');
+            $req = $bdd->prepare('INSERT INTO utilisateur (pseudo, nom, prenom, email, mdp, date_inscription) VALUES (?, ?, ?, ?, ?, ?)');
 
             // 2. Link the "?" to their respective data
             $req->bindParam(1, $pseudo, PDO::PARAM_STR);
@@ -82,7 +82,7 @@ class ManagerUser extends ModelUser
         // try ... catch
         try {
             // 1. Prepare request SELECT
-            $req = $bdd->prepare('SELECT id_utilisateur, pseudo, nom, prénom, email, mdp, date_inscription FROM utilisateur');
+            $req = $bdd->prepare('SELECT id_utilisateur, pseudo, nom, prenom, email, mdp, date_inscription FROM utilisateur');
 
             // 2. Execute request
             $req->execute();

@@ -17,7 +17,7 @@ function inscriptionFormInspection()
     if (!isset($_POST["email"]) || empty($_POST["email"])) {
         return ["pseudo" => "", "nom" => "", "prenom" => "", "email" => "", "mdp" => "", "date" => "", "erreur" => "Veuillez enregistrer un email."];
     }
-    
+
     if (!isset($_POST["mdp"]) || empty($_POST["mdp"])) {
         return ["pseudo" => "", "nom" => "", "prenom" => "", "email" => "", "mdp" => "", "date" => "", "erreur" => "Veuillez enregistrer un mot de passe."];
     }
@@ -128,7 +128,7 @@ if(isset($_POST['connexion'])){
                     $_SESSION['id_utilisateur'] = $data[0]['id_utilisateur'];
                     $_SESSION['pseudo'] = $data[0]['pseudo'];
                     $_SESSION['nom'] = $data[0]['nom'];
-                    $_SESSION['prenom'] = $data[0]['prénom'];
+                    $_SESSION['prenom'] = $data[0]['prenom'];
                     $_SESSION['email'] = $data[0]['email'];
 
                     $messageCo = "Bienvenue {$_SESSION['prenom']} !";

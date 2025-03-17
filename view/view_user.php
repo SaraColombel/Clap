@@ -48,7 +48,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="inscriptionInputConfirmPassword" class="form-label">Confirmer le mot de passe</label>
-                    <input type="password" class="form-control pwdCheck passwordInput"
+                    <input type="password" class="form-control passwordInput"
                         id="inscriptionInputConfirmPassword" required>
                 </div>
                 <button type="submit" class="btn text-white" name="submit" style="background-color: #2B3035; ">S'inscrire</button>
