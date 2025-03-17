@@ -18,30 +18,43 @@ fetch(apiLink)
             const colDiv = document.createElement('div');
             colDiv.className = `col-3 mb-3 ${movie.id}` ;
 
-            let rating = movie.vote_average/2;
             let stars = "";
-            for (let i=0; i < Math.floor(rating); i++){
-                stars += "<i class='bi bi-star-fill pe-1' style='color:#ffc107'></i>";
-            }
-
-            if(rating%1 >= 0.5){
-                stars += "<i class='bi bi-star-half pe-1' style='color:#ffc107'></i>";
-                for(let i = Math.floor(rating)+1; i < 5; i++){
-                stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+            let noteNumber = `(${(movie.vote_average/2).toFixed(1)})`
+            if(movie.vote_average){
+                let rating = movie.vote_average/2;
+                for (let i=0; i < Math.floor(rating); i++){
+                    stars += "<i class='bi bi-star-fill pe-1' style='color:#ffc107'></i>";
+                }
+                if(rating%1 >= 0.5){
+                    stars += "<i class='bi bi-star-half pe-1' style='color:#ffc107'></i>";
+                    for(let i = Math.floor(rating)+1; i < 5; i++){
+                    stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+                    }
+                } else {
+                    for(let i = Math.floor(rating); i < 5; i++){
+                    stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
+                    }
                 }
             } else {
-                for(let i = Math.floor(rating); i < 5; i++){
-                stars += "<i class='bi bi-star pe-1' style='color:#ffc107'></i>";
-                }
+                stars = "Pas de note"
+                noteNumber = "";
             }
+
+            let srcImg;
+            if(movie.poster_path){
+                srcImg = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+            } else {
+                srcImg = './img/noImg.png';
+            }
+
 
             const movieCard = `
             <div class="card">
-                <img class="img-fluid rounded-top" alt="${movie.title}" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+                <img class="img-fluid rounded-top" alt="${movie.title}" src="${srcImg}">
                 <div class="card-body text-white rounded-bottom">
-                    <h7 class="card-title " >${movie.title}</h7>
-                    <p class="card-text m-0" style="font-weight:250; font-size:17px">${new Date(movie.release_date).getFullYear()}</p>
-                    <div style="font-weight: lighter; font-size: 14px">${stars} (${(movie.vote_average/2).toFixed(1)})
+                    <h7 class="card-title">${movie.title}</h7>
+                    <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
+                    <div class="card-average">${stars} ${noteNumber}
                     </div>
                 </div>
             </div>`;

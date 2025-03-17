@@ -9,6 +9,10 @@ p{
   font-family: 'Questrial';
   width: 100%;
 }
+.navbar-nav .nav-link {
+  font-family: 'Lexend';
+  font-size: 18px;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -34,6 +38,21 @@ p{
   background-color:#2B3035;
   align-content: center;
   padding: 15px !important;
+  font-weight: 150;
+  font-size: 17px;
+}
+
+.card-title{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.card-note {
+  font-weight: 75;
+  font-size: 15px;
 }
 
 nav{
