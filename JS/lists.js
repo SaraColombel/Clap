@@ -95,13 +95,13 @@ function clickTest(movie){
             // Si il n'y a pas de plateforme (aucune donnée dans flatrate), afficher un message ou un fallback
             const platformImages = platforms
                 ? platforms.map(provider => provider.logo_path
-                    ? `<img src="https://image.tmdb.org/t/p/w45${provider.logo_path}" class="rounded" alt="${provider.provider_name}" style="width:5%">`
+                    ? `<img src="https://image.tmdb.org/t/p/w45${provider.logo_path}" class="rounded" alt="${provider.provider_name}" style="width:4%">`
                     : '<p>No logo available</p>').join(' ')
                 : '<p>Aucune plateforme disponible</p>';  // Affiche un message si aucune plateforme n'est disponible
 
             // Créer le contenu avec les informations récupérées
             const content = `
-            <div class="container-fluid pt-3 pb-3 ">
+            <div class="container-fluid p-4 pt-3">
                     <div class="col-12">
                     <div class="row">
                         <div class="col-3">

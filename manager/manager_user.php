@@ -9,7 +9,7 @@ class ManagerUser extends ModelUser
     {
         $email = $this->getEmail();
         // 1 - Instantiates the PDO connection object
-        $bdd = new PDO("mysql:host={$_ENV['DBHost']};dbname={$_ENV['DBName']}", "{$_ENV['login']}", "{$_ENV['password']}", array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $bdd = new PDO("mysql:host={$_ENV['DBhost']};dbname={$_ENV['DBname']}","{$_ENV['login']}","{$_ENV['password']}",array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
         // try ... catch
         try {
@@ -45,7 +45,7 @@ class ManagerUser extends ModelUser
         $mdp = $this->getMdp();
         $date = $this->getDate();
         // 1 - Instantiates the PDO connection object
-        $bdd = new PDO("mysql:host={$_ENV['DBHost']};dbname={$_ENV['DBName']}", "{$_ENV['login']}", "{$_ENV['password']}", array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $bdd = new PDO("mysql:host={$_ENV['DBhost']};dbname={$_ENV['DBname']}","{$_ENV['login']}","{$_ENV['password']}",array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
 
         // 2 - Try ... catch
@@ -77,7 +77,7 @@ class ManagerUser extends ModelUser
     function readUsers()
     {
         // 1 - Instantiates the PDO connection object
-        $bdd = new PDO('mysql:host=localhost;dbname=clap', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $bdd = new PDO("mysql:host={$_ENV['DBhost']};dbname={$_ENV['DBname']}","{$_ENV['login']}","{$_ENV['password']}",array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
         // try ... catch
         try {
@@ -100,7 +100,7 @@ class ManagerUser extends ModelUser
 
     // Function to modify datas in DB
 // Param = string pseudo, string $nom, string $prenom, string $email
- // Return = String 
+ // Return = String
 //     public function modifyInfo(): string
 //     {
 //         $modify_pseudo = $this->getPseudo();
@@ -112,7 +112,7 @@ class ManagerUser extends ModelUser
 //         $sessionIdUtilisateur = $_SESSION['id_utilisateur'];
 
 //         try {
-//             $req = $bdd->prepare("UPDATE utilisateur SET pseudo = ?, nom = ?, prénom = ?, email = ? WHERE id_utilisateur = $sessionIdUtilisateur");
+//             $req = $bdd->prepare("UPDATE utilisateur SET pseudo = ?, nom = ?, prenom = ?, email = ? WHERE id_utilisateur = $sessionIdUtilisateur");
 //             $req->bindParam(1, $modify_pseudo,  PDO::PARAM_STR);
 //             $req->bindParam(2, $modify_nom,  PDO::PARAM_STR);
 //             $req->bindParam(3, $modify_prenom, PDO::PARAM_STR);

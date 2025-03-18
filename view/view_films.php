@@ -1,10 +1,10 @@
 <!-- Début dropdown buttons -->
 <div class="container-fluid">
-        <div class="row d-flex justify-content-center mt-2">
-            <div class="col-3"></div>
-            <div class="col-6 d-flex justify-content-start">
-                <!-- Début dropdown button "Genre" -->
-                <div class="dropdown col-6 text-center d-flex">
+    <div class="row d-flex justify-content-center mt-2">
+        <div class="col-3"></div>
+        <div class="col-6 d-flex justify-content-start">
+            <!-- Début dropdown button "Genre" -->
+            <div class="dropdown col-6 text-center d-flex">
                 <button class="btn btn-warning dropdown-toggle me-2" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     Genre
@@ -87,12 +87,12 @@
                     <li><a class="dropdown-item" href="#">0⭐</a></li>
                 </ul>
             </div>
-                <!-- Fin dropdown button "Note" -->
-            </div>
-            <div class="col-3"></div>
+            <!-- Fin dropdown button "Note" -->
         </div>
+        <div class="col-3"></div>
     </div>
-    <!-- Fin dropdown buttons -->
+</div>
+<!-- Fin dropdown buttons -->
 
 <div class="container-fluid">
     <div class="row d-flex justify-content-center mt-3">
@@ -244,5 +244,5 @@
         </div>
         <div class="col-3"></div>
     </div> -->
-</div>
+    </div>
 </div>
