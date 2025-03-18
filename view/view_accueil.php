@@ -12,6 +12,7 @@
                 <ul class="dropdown-menu" id="apiGenres">
                     <script>
                         const apiKey = '9ee5cc91c2cb960c4d474ee80a467bc1';
+
                         const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=fr-FR`;
 
                         const excludedGenres = ["Téléfilm", "Musique", "Documentaire"];
@@ -94,7 +95,9 @@
 </div>
 <!-- Fin dropdown buttons -->
 
-<!-- Début carroussel 1 -->
+<div id="details">
+</div>
+<!-- Début carousel 1 -->
 <section class="pt-3 pb-4">
     <div class="container-fluid">
 
@@ -107,10 +110,10 @@
             </div>
 
             <div class="col-1 text-end">
-                <a class="btn btn-dark mb-3 me-2" href="#carouselExampleIndicators1" role="button" data-slide="prev">
+                <a class="btn btn-dark mb-3 me-2" data-bs-target="#carouselExampleIndicators1" type="button" data-bs-slide="prev">
                     <i class="bi bi-arrow-left"></i>
                 </a>
-                <a class="btn btn-dark mb-3 " href="#carouselExampleIndicators1" role="button" data-slide="next">
+                <a class="btn btn-dark mb-3 " data-bs-target="#carouselExampleIndicators1" type="button" data-bs-slide="next">
                     <i class="bi bi-arrow-right"></i>
                 </a>
             </div>
@@ -125,7 +128,7 @@
             <div class="col-6">
                 <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" id="carousel-inner">
-                        <script>
+                        <!-- <script>
                             const topRatedUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=fr-FR`;
 
                             fetch(topRatedUrl)
@@ -191,12 +194,12 @@
                                     });
                                 })
                                 .catch(error => console.error('Erreur lors de la récupération des films :', error));
-                        </script>
+                        </script> -->
                     </div>
 </section>
-<!-- Fin carroussel 1 -->
+<!-- Fin carousel 1 -->
 
-<!-- Début carroussel 3-->
+<!-- Début carousel 2 -->
 <section class="pb-4">
     <div class="container-fluid">
 
@@ -209,10 +212,10 @@
             </div>
 
             <div class="col-1 text-end">
-                <a class="btn btn-dark mb-3 me-2" href="#carouselExampleIndicators3" role="button" data-slide="prev">
+                <a class="btn btn-dark mb-3 me-2" data-bs-target="#carouselExampleIndicators2" type="button" data-bs-slide="prev">
                     <i class="bi bi-arrow-left"></i>
                 </a>
-                <a class="btn btn-dark mb-3 " href="#carouselExampleIndicators3" role="button" data-slide="next">
+                <a class="btn btn-dark mb-3 " data-bs-target="#carouselExampleIndicators2" type="button" data-bs-slide="next">
                     <i class="bi bi-arrow-right"></i>
                 </a>
             </div>
@@ -225,17 +228,17 @@
             <div class="col-3"></div>
 
             <div class="col-6">
-                <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner" id="carousel-inner3">
+                <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="carousel-inner2">
 
-                        <script>
-                            const nowPlayingUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=fr-FR`;
+                        <!-- <script>
+
 
                             fetch(nowPlayingUrl)
                                 .then(response => response.json())
                                 .then(data => {
                                     const movies = data.results;
-                                    const carouselContainer = document.getElementById('carousel-inner3');
+                                    const carouselContainer = document.getElementById('carousel-inner2');
 
                                     let activeSet = false; // Pour gérer la classe "active" du carousel
 
@@ -294,7 +297,7 @@
                                     });
                                 })
                                 .catch(error => console.error('Erreur lors de la récupération des films :', error));
-                        </script>
+                        </script> -->
 
                     </div>
                 </div>
@@ -305,9 +308,9 @@
         </div>
     </div>
 </section>
-<!-- Fin carroussel 3 -->
+<!-- Fin carousel 2 -->
 
-<!-- Début carroussel 2-->
+<!-- Début carousel 3 -->
 <section class="pb-4">
     <div class="container-fluid">
 
@@ -320,10 +323,10 @@
             </div>
 
             <div class="col-1 text-end">
-                <a class="btn btn-dark mb-3 me-2" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                <a class="btn btn-dark mb-3 me-2" data-bs-target="#carouselExampleIndicators3" type="button"  data-bs-slide="prev">
                     <i class="bi bi-arrow-left"></i>
                 </a>
-                <a class="btn btn-dark mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                <a class="btn btn-dark mb-3 " data-bs-target="#carouselExampleIndicators3" type="button"  data-bs-slide="next">
                     <i class="bi bi-arrow-right"></i>
                 </a>
             </div>
@@ -336,16 +339,16 @@
             <div class="col-3"></div>
 
             <div class="col-6">
-                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner" id="carousel-inner2">
-                        <script>
+                <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" id="carousel-inner3">
+                        <!-- <script>
                             const upComingUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=fr-FR`;
 
                             fetch(upComingUrl)
                                 .then(response => response.json())
                                 .then(data => {
                                     const movies = data.results;
-                                    const carouselContainer = document.getElementById('carousel-inner2');
+                                    const carouselContainer = document.getElementById('carousel-inner3');
 
                                     let activeSet = false; // Pour gérer la classe "active" du carousel
 
@@ -404,7 +407,7 @@
                                     });
                                 })
                                 .catch(error => console.error('Erreur lors de la récupération des films :', error));
-                        </script>
+                        </script> -->
                     </div>
                 </div>
             </div>
@@ -414,7 +417,7 @@
         </div>
     </div>
 </section>
-<!-- Fin carroussel 2 -->
+<!-- Fin carousel 3 -->
  
 <!-- Début blog -->
 <div class="container-fluid pb-4">
@@ -473,3 +476,5 @@
     </div>
 </div>
 <!-- Fin blog -->
+
+<script src="./JS/accueil.js"></script>
