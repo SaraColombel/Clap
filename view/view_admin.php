@@ -1,5 +1,5 @@
-<div class="container-fluid text-center">
-    <h1>Création d'article de blog</h1>
+<div class="container-fluid text-center ">
+    <h2 class="mt-2">Création d'article de blog</h2>
     <div class="row d-flex justify-content-center mt-2">
         <div class="col-1">
             <button id="petit">Petit</button>

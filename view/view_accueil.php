@@ -104,8 +104,6 @@
 </div>
 <!-- Fin dropdown buttons -->
 
-<!-- <div id="carousels" class="mt-3"></div> -->
-
 <!-- Début carroussel 1 -->
 <section class="pt-3 pb-4">
     <div class="container-fluid">

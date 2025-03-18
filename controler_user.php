@@ -4,6 +4,7 @@ session_start();
 include './utilitaire/functions.php';
 include './model/model_user.php';
 include './manager/manager_user.php';
+include 'utilitaire/env.php';
 
 $message = "";
 $messageCo = "";
@@ -128,7 +129,7 @@ if(isset($_POST['connexion'])){
                     $_SESSION['id_utilisateur'] = $data[0]['id_utilisateur'];
                     $_SESSION['pseudo'] = $data[0]['pseudo'];
                     $_SESSION['nom'] = $data[0]['nom'];
-                    $_SESSION['prenom'] = $data[0]['prénom'];
+                    $_SESSION['prenom'] = $data[0]['prenom'];
                     $_SESSION['email'] = $data[0]['email'];
 
                     $messageCo = "Bienvenue {$_SESSION['prenom']} !";
@@ -138,19 +139,6 @@ if(isset($_POST['connexion'])){
         }
     }
 }
-
-$deconnexion = "none";
-
-
-if(isset($_SESSION['id_utilisateur'])){
-    $colorContact = '#ffc107';
-    $deconnexion = "";
-} else if (!isset($_SESSION['id_utilisateur'])){
-    $colorContact = 'white';
-    $deconnexion = "none";}
-
-
-
 include './view/view_header.php';
 include './view/view_user.php';
 include './view/view_footer.php';
