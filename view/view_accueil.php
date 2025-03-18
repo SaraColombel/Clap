@@ -37,16 +37,6 @@
                             })
                             .catch(error => console.error('Erreur :', error));
                     </script>
-                    <!-- <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Aventure</a></li>
-                    <li><a class="dropdown-item" href="#">Comédie</a></li>
-                    <li><a class="dropdown-item" href="#">Drame</a></li>
-                    <li><a class="dropdown-item" href="#">Fantastique</a></li>
-                    <li><a class="dropdown-item" href="#">Guerre</a></li>
-                    <li><a class="dropdown-item" href="#">Policier</a></li>
-                    <li><a class="dropdown-item" href="#">Horreur</a></li>
-                    <li><a class="dropdown-item" href="#">Western</a></li>
-                    <li><a class="dropdown-item" href="#">Science-fiction</a></li> -->
                 </ul>
 
                 <button class="btn btn-warning dropdown-toggle me-2" type="button" data-bs-toggle="dropdown"

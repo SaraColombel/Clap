@@ -53,9 +53,4 @@ class ManagerContact extends ModelContact
             return $error->getMessage();
         }
     }
-
-    // public function insertContacter(){
-    //     $email = $this->getEmail();
-    //     $id_utilisateur = getIdUtilisateur();
-    // }
 }

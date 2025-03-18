@@ -18,7 +18,7 @@ function inscriptionFormInspection()
     if (!isset($_POST["email"]) || empty($_POST["email"])) {
         return ["pseudo" => "", "nom" => "", "prenom" => "", "email" => "", "mdp" => "", "date" => "", "erreur" => "Veuillez enregistrer un email."];
     }
-    
+
     if (!isset($_POST["mdp"]) || empty($_POST["mdp"])) {
         return ["pseudo" => "", "nom" => "", "prenom" => "", "email" => "", "mdp" => "", "date" => "", "erreur" => "Veuillez enregistrer un mot de passe."];
     }
