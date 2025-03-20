@@ -9,7 +9,7 @@
                     for="flexSwitchCheckDefault"></label>
             </div>
             <!-- Formulaire Connexion -->
-            <form id="connexionForm" class="p-4 rounded" style="background-color:#2B3035;" method="post" action = "">
+            <form id="connexionForm" class="p-4 mt-3 rounded" style="background-color:#2B3035;" method="post" action = "">
                 <div class="mb-3 text-white">
                     <label for="connexionInputEmail" class="form-label">Adresse Email</label>
                     <input type="email" class="form-control" name="emailCo" id="connexionInputEmail">
