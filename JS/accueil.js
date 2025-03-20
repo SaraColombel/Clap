@@ -134,14 +134,15 @@ fetch(nowPlayingUrl)
 				let srcImg = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "./img/noImg.png";
 
 				const movieCard2 = `
-        <div class="card">
-        <img class="img-fluid rounded-top" alt="${movie.title}" src="${srcImg}">
-        <div class="card-body text-white rounded-bottom" style="background-color:#2B3035;">
-            <h7 class="card-title">${movie.title}</h7>
-            <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
-            <div>${stars} (${noteNumber})</div>
-        </div>
-        </div>
+        				<div class="card">
+                    <img class="img-fluid rounded-top" alt="${movie.title}" src="${srcImg}">
+                    <div class="card-body text-white rounded-bottom">
+                        <h7 class="card-title">${movie.title}</h7>
+                        <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
+                        <div class="card-average">${stars} ${noteNumber}
+                        </div>
+                    </div>
+                </div>
     `;
 				colDiv2.innerHTML = movieCard2;
 				rowDiv2.appendChild(colDiv2);
@@ -184,7 +185,7 @@ fetch(upComingUrl)
 
 				// Add rating stars
 				let stars = "";
-				let noteNumber = (movie.vote_average / 2).toFixed(1);
+				let noteNumber = `(${(movie.vote_average/2).toFixed(1)})`;
 				if (movie.vote_average) {
 					let rating = movie.vote_average / 2;
 					for (let i = 0; i < Math.floor(rating); i++) {
@@ -206,18 +207,24 @@ fetch(upComingUrl)
 				}
 
 				// Set movie image
-				let srcImg = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "./img/noImg.png";
+                let srcImg;
+                if(movie.poster_path){
+                    srcImg = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                } else {
+                    srcImg = './img/noImg.png';
+                }
 
 				const movieCard3 = `
-        <div class="card">
-        <img class="img-fluid rounded-top" alt="${movie.title}" src="${srcImg}">
-        <div class="card-body text-white rounded-bottom" style="background-color:#2B3035;">
-            <h7 class="card-title">${movie.title}</h7>
-            <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
-            <div>${stars} (${noteNumber})</div>
-        </div>
-        </div>
-    `;
+                <div class="card">
+                    <img class="img-fluid rounded-top" alt="${movie.title}" src="${srcImg}">
+                    <div class="card-body text-white rounded-bottom">
+                        <h7 class="card-title">${movie.title}</h7>
+                        <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
+                        <div class="card-average">${stars} ${noteNumber}
+                        </div>
+                    </div>
+                </div>
+				`;
 				colDiv3.innerHTML = movieCard3;
 				rowDiv3.appendChild(colDiv3);
 
@@ -233,7 +240,7 @@ fetch(upComingUrl)
 
 // Fonctions ------
 
-const detailDiv = document.getElementById('details');
+const detailDiv = document.getElementById("details");
 function clickTest(movie) {
 	detailDiv.className = "col-5 d-block";
 	// Récupérer les détails du film

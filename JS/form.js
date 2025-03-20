@@ -134,4 +134,4 @@ function displayForm(boolParam) {
     formConnexionUI.style.display = boolParam ? 'none' : 'block';
     formInscriptionUI.style.display = boolParam ? 'block' : 'none';
     formTitleUI.innerText = boolParam ? `Inscription` : 'Connexion';
-    checkBoxLabelUI.innerText = boolParam ? `Vous avez déjà un compte ?` : 'Pas encore inscrit ?';};
+    checkBoxLabelUI.innerText = boolParam ? `Vous avez un compte ? Connectez-vous.` : 'Pas encore de compte ? Inscrivez-vous.';};

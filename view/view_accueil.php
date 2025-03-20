@@ -478,3 +478,4 @@
 <!-- Fin blog -->
 
 <script src="./JS/accueil.js"></script>
+<script src="./JS/dropDown.js"></script>
