@@ -89,7 +89,6 @@ function clickTest(movie){
             const providers = providersData.results['FR'];
 
             const platforms = providers && providers.flatrate && providers.flatrate.length > 0 ? providers.flatrate : null;
-            console.log(platforms)
             const genres = detailsData.genres.map(genre => genre.name).join(', ');  // Liste des genres
 
             // Si il n'y a pas de plateforme (aucune donnée dans flatrate), afficher un message ou un fallback
@@ -149,6 +148,5 @@ document.addEventListener("click", function(event) {
 function setDetailPosition() {
     const details = document.getElementById('details');
     const scrollTop = window.scrollY;
-    console.log("scrollY :", scrollTop)
     details.style.top = `${scrollTop+200}px`; // Centré verticalement
 }
