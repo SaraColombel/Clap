@@ -62,3 +62,5 @@
     </div>
 </div>
 <!-- Fin formulaire -->
+
+<script src="./JS/form.js"></script>

@@ -11,8 +11,8 @@
                 </button>
                 <ul class="dropdown-menu" id="apiGenres">
                     <script>
-                        const apiKey = '9ee5cc91c2cb960c4d474ee80a467bc1';
-                        const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=fr-FR`;
+                        const apiKey2 = '9ee5cc91c2cb960c4d474ee80a467bc1';
+                        const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey2}&language=fr-FR`;
 
                         const excludedGenres = ["Téléfilm", "Musique", "Documentaire"];
 
@@ -246,3 +246,5 @@
     </div> -->
     </div>
 </div>
+
+<script src="./JS/list.js"></script>
