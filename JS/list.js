@@ -16,6 +16,7 @@ let selectedGenre = "";
 let selectedNationality = "";
 let selectedPlatform = "";
 let selectedRating = "";
+let selectedRuntime = "";
 
 fetchMovies(apiLinkAllMovies);
 
@@ -39,41 +40,12 @@ function fillDropDowns(apiLink, dropdownName) {
 						element.innerHTML = `<li><a class="dropdown-item" href='#' data-id="${item.id}" data-name="${item.name}">${item.name}</a></li>`;
 						dropdown.appendChild(element);
 					});
-
-                // // Si c'est pour les régions
-                // } else if (dropdownName === "dropdownRegions") {
-                //     const allowedRegions = ["FR", "DE", "CN", "KR", "ES", "IN", "IT", "JP", "NG", "US", "UK"];
-                //     const regions = data.filter((region) => allowedRegions.includes(region.iso_3166_1));
-                //     regions.forEach((item) => {
-                //         const element = document.createElement("div");
-                //         element.innerHTML = `<li><a class="dropdown-item" href='#' data-id="${item.iso_3166_1}" data-name="${item.native_name}">${item.native_name}</a></li>`;
-                //         dropdown.appendChild(element);
-                //     });
-
-                // // Si c'est pour les plateformes
-                // } else if (dropdownName === "dropdownPlatforms") {
-                //     const sortedPlatforms = data.results.sort((a, b) => a.display_priority - b.display_priority);
-                //     const sortedTopPlatforms = sortedPlatforms.slice(0, 10).sort((a, b) => {
-                //         if (a.provider_name.toLowerCase() < b.provider_name.toLowerCase()) {
-                //             return -1; // a vient avant b
-                //         }
-                //         if (a.provider_name.toLowerCase() > b.provider_name.toLowerCase()) {
-                //             return 1; // b vient avant a
-                //         }
-                //         return 0; // a et b sont égaux
-                //     });
-                //     // Vérifier si les plateformes sont disponibles
-                //     sortedTopPlatforms.forEach((item) => {
-                //         const element = document.createElement("div");
-                //         element.innerHTML = `<li><a class="dropdown-item" href='#' data-id="${item.provider_id}" data-name="${item.provider_name}">${item.provider_name}</a></li>`;
-                //         dropdown.appendChild(element);
-                //     });
-                // }
 			}
 		}
     })
     .catch((error) => console.error("Erreur :", error));
 }
+
 
 document.addEventListener("click", function (event) {
 	if (event.target && event.target.matches(".dropdown-item")) {
@@ -82,35 +54,74 @@ document.addEventListener("click", function (event) {
 		const selectedId = selectedItem.getAttribute("data-id");
 		const selectedName = selectedItem.getAttribute("data-name");
 
+		// Retirer la classe 'active' de tous les éléments du dropdown
+		const dropdownItems = selectedItem.closest(".dropdown-menu").querySelectorAll(".dropdown-item");
+		dropdownItems.forEach(item => item.classList.remove("active"));
+
+		// Ajouter la classe 'active' à l'élément sélectionné
+		selectedItem.classList.add("active");
+
 		if (dropdownName === "dropdownGenres") {
 			selectedGenre = selectedId;
 			document.getElementById("buttonGenre").textContent = selectedName;
+			document.getElementById("buttonGenre").classList.add("selected");
 		} else if(dropdownName === "dropdownRating"){
-            selectedRating = selectedId;
-            document.getElementById("buttonRating").innerHTML = `${selectedId} <i class='bi bi-star-fill pe-1' style='color:#2b3035'>`;
-            console.log(selectedId)
+            selectedRating = parseInt(selectedId) || 0;
+            document.getElementById("buttonRating").innerHTML = `${selectedId} <i class='bi bi-star-fill pe-1' style='color:#2B3035'>`;
+			document.getElementById("buttonRating").classList.add("selected");
+		} else if(dropdownName === "dropdownRuntime"){
+			selectedRuntime = selectedId;
+			document.getElementById("buttonRuntime").textContent = selectedName;
+			document.getElementById("buttonRuntime").classList.add("selected");
+		} else if (dropdownName === "dropdownNationality"){
+			selectedNationality = selectedId;
+			document.getElementById("buttonNationality").textContent = selectedName;
+			document.getElementById("buttonNationality").classList.add("selected");
         }
-
-        // else if (dropdownName === "dropdownRegions") {
-		// 	selectedNationality = selectedId;
-		// 	document.getElementById("buttonRegion").textContent = selectedName;
-		// } else if (dropdownName === "dropdownPlatforms") {
-		// 	selectedPlatform = selectedId;
-		// 	document.getElementById("buttonPlatform").textContent = selectedName;
-		// }
 
 		getMoviesApiLink();
 	}
 });
 
+document.getElementById("resetFilter").addEventListener("click", function(event) {
+    selectedGenre = "";
+    selectedRating = "";
+    selectedRuntime = "";
+    selectedNationality = "";
+
+    document.getElementById("buttonGenre").textContent = "Genre ";
+    document.getElementById("buttonRating").innerHTML = "Note ";
+    document.getElementById("buttonRuntime").textContent = "Durée ";
+    document.getElementById("buttonNationality").textContent = "Nationalité ";
+
+    document.getElementById("buttonGenre").classList.remove("selected");
+    document.getElementById("buttonRating").classList.remove("selected");
+    document.getElementById("buttonRuntime").classList.remove("selected");
+    document.getElementById("buttonNationality").classList.remove("selected");
+
+    const allDropdownItems = document.querySelectorAll(".dropdown-item");
+    allDropdownItems.forEach(item => item.classList.remove("active"));
+
+	getMoviesApiLink();
+});
+
 function getMoviesApiLink() {
 	const genreFilter = selectedGenre ? `&with_genres=${selectedGenre}` : "";
-    const ratingFilter = selectedRating ? `&vote_average.gte=${selectedRating*2}` : "";
-	// const nationalitiesFilter = selectedNationality ? `&region=${selectedNationality}` : "";
-	// const platformFilter = selectedPlatform ? `&with_watch_providers=${selectedPlatform}` : "";
+    const ratingFilter = selectedRating ? `&vote_average.gte=${parseInt(selectedRating) * 2}` : "";
+	const nationalityFilter = selectedNationality ? `&with_original_language=${selectedNationality}` : "";
 
-	const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR${genreFilter}${ratingFilter}`;
-    console.log("API URL : ", apiUrl);
+	let runtimeFilter = "";
+	if(selectedRuntime){
+		if (selectedRuntime === "90") {
+			runtimeFilter = `&with_runtime.lte=${selectedRuntime}`;
+		} else if(selectedRuntime === "120"){
+			runtimeFilter = `&with_runtime.gte=${selectedRuntime}`;
+		} else if(selectedRuntime === "90-120"){
+			runtimeFilter = `&with_runtime.gte=90&with_runtime.lte=120`;
+		}
+	}
+
+	const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR${genreFilter}${ratingFilter}${runtimeFilter}${nationalityFilter}`;
 	fetchMovies(apiUrl);
 }
 
