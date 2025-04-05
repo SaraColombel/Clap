@@ -7,9 +7,6 @@ const apiLinkPlatforms = `https://api.themoviedb.org/3/watch/providers/movie?lan
 
 fillDropDowns(apiLinkGenres, "dropdownGenres");
 
-// fillDropDowns(apiLinkRegions, "dropdownRegions");
-// fillDropDowns(apiLinkPlatforms, "dropdownPlatforms");
-
 // DROP DOWN BUTTONS
 const excludedGenres = ["Téléfilm", "Musique", "Documentaire"];
 let selectedGenre = "";
@@ -53,6 +50,7 @@ document.addEventListener("click", function (event) {
 		const dropdownName = selectedItem.closest(".dropdown-menu").id;
 		const selectedId = selectedItem.getAttribute("data-id");
 		const selectedName = selectedItem.getAttribute("data-name");
+		console.log(selectedItem);
 
 		// Retirer la classe 'active' de tous les éléments du dropdown
 		const dropdownItems = selectedItem.closest(".dropdown-menu").querySelectorAll(".dropdown-item");
@@ -122,6 +120,7 @@ function getMoviesApiLink() {
 	}
 
 	const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR${genreFilter}${ratingFilter}${runtimeFilter}${nationalityFilter}`;
+	console.log(apiUrl);
 	fetchMovies(apiUrl);
 }
 

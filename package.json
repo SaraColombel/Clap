@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "flag-icons": "^7.3.2"
+  },
+  "scripts": {
+    "build-css": "sass style/custom.scss style/outputCustom.css"
   }
 }
