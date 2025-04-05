@@ -4,6 +4,7 @@ const apiLinkGenres = `https://api.themoviedb.org/3/genre/movie/list?api_key=${a
 const apiLinkRegions = `https://api.themoviedb.org/3/configuration/countries?language=fr-FR&api_key=${apiKey}`;
 const apiLinkPlatforms = `https://api.themoviedb.org/3/watch/providers/movie?language=fr-FR&watch_region=FR&api_key=${apiKey}`;
 
+
 fillDropDowns(apiLinkGenres, "dropdownGenres");
 
 let selectedGenre = "";
