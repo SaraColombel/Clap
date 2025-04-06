@@ -5,7 +5,7 @@
         <div class="col-6 d-flex justify-content-start mt-2">
             <div class="dropdown col-6 text-center d-flex align-items-center">
 
-                <button class="btn btn-custom btn-dark btn-sm dropdown-toggle me-2 " id="buttonRuntime" type="button" data-bs-toggle="dropdown"
+                <button class="btn btn-custom btn-dark btn dropdown-toggle me-2 " id="buttonRuntime" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     Durée
                 </button>
@@ -16,7 +16,7 @@
                     <!-- Insertion des plateformes depuis list.js -->
                 </ul>
 
-                <button class="btn btn-dark btn-sm dropdown-toggle me-2" id="buttonGenre" type="button" data-bs-toggle="dropdown"
+                <button class="btn btn-dark btn dropdown-toggle me-2" id="buttonGenre" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     Genre
                 </button>
@@ -24,7 +24,7 @@
                     <!-- Insertion des genres depuis list.js -->
                 </ul>
 
-                <button class="btn btn-dark btn-sm dropdown-toggle me-2" id="buttonNationality" type="button" data-bs-toggle="dropdown"
+                <button class="btn btn-dark btn dropdown-toggle me-2" id="buttonNationality" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     Nationalité
                 </button>
@@ -39,7 +39,7 @@
                     <li><a class="dropdown-item" href="#" data-id="ja" data-name="Japonais">Japonais  <span class="fi fi-jp"</span></i></a></li>
                 </ul>
 
-                <button class="btn btn-dark btn-sm dropdown-toggle me-2" id="buttonRating" type="button" data-bs-toggle="dropdown"
+                <button class="btn btn-dark btn dropdown-toggle me-2" id="buttonRating" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     Note
                 </button>

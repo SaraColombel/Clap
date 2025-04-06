@@ -283,7 +283,7 @@ function clickTest(movie) {
                         <p class="mb-1 w-100"><b>Acteurs :</b> ${actors}</p>
                     </div>
                     <div class="col-1  text-end">
-                        <i class="bi bi-x-lg" id="cross" style="color:white"></i>
+                        <i class="bi bi-x-lg" id="cross" style="color:white; cursor: pointer"></i>
                     </div>
                 </div>
                 <div class="row">
