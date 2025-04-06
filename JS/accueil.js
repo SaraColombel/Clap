@@ -4,6 +4,7 @@ const apiLinkGenres = `https://api.themoviedb.org/3/genre/movie/list?api_key=${a
 const apiLinkRegions = `https://api.themoviedb.org/3/configuration/countries?language=fr-FR&api_key=${apiKey}`;
 const apiLinkPlatforms = `https://api.themoviedb.org/3/watch/providers/movie?language=fr-FR&watch_region=FR&api_key=${apiKey}`;
 
+
 fillDropDowns(apiLinkGenres, "dropdownGenres");
 
 let selectedGenre = "";
@@ -282,7 +283,7 @@ function clickTest(movie) {
                         <p class="mb-1 w-100"><b>Acteurs :</b> ${actors}</p>
                     </div>
                     <div class="col-1  text-end">
-                        <i class="bi bi-x-lg" id="cross" style="color:white"></i>
+                        <i class="bi bi-x-lg" id="cross" style="color:white; cursor: pointer"></i>
                     </div>
                 </div>
                 <div class="row">
