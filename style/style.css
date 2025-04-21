@@ -26,12 +26,12 @@ html.theme-light body{
   color: var(--text);
 } */
 
-html.theme-light button{
+/* html.theme-light button{
   background-color: var(--primary);
 }
 html.theme-dark button{
   background-color: var(--primary);
-}
+} */
 
 /* Style pour le switch */
 .switch {
@@ -83,11 +83,11 @@ input:checked + .slider:before {
 
 
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4{
     font-family: 'Lexend';
     width: 100%;
 }
-p, a{
+p, a, h5, h6{
   font-family: 'Questrial';
   width: 100%;
 }
@@ -111,7 +111,7 @@ p, a{
   }
 }
 
-.card-body{
+.c-b{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -231,3 +231,28 @@ nav{
   cursor: pointer;
 }
 
+
+/* Blog */
+.object-cover {
+  object-fit: cover;
+}
+
+.collage-img-small {
+  height: calc(50% - 5px);
+  object-fit: cover;
+}
+
+/* Si tu veux une hauteur fixe propre */
+@media (min-width: 768px) {
+  .row.g-2 {
+    height: 400px; /* Ajuste selon ton goût */
+  }
+}
+
+.hover-zoom{
+  transition: 0.3s ease-in-out;
+}
+
+.hover-zoom:hover {
+  transform: scale(1.05);
+}

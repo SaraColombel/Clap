@@ -36,7 +36,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="col-6 d-flex pe-0">
+                <div class="col-6 d-flex pe-0 ps-0">
                     <!-- Menu Navbar (liens de navigation) -->
                     <div class="col-2 collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav">

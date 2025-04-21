@@ -1,5 +1,5 @@
 <!-- Début footer -->
-<footer class="py-4 bg-dark text-white g-0">
+<footer class="py-4 bg-dark text-white g-0" style="background-color: #2B3035 !important">
     <div class="container-fluid">
 
         <div class="row justify-content-center ">

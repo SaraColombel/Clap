@@ -67,7 +67,7 @@
 
         <div class="col-3"></div>
         <div class="col-6">
-            <h4 class="mb-3 border-bottom border-dark border-2">Les films</h4>
+            <h3 class="mb-3 border-bottom border-dark border-2">Les films</h3>
         </div>
 
         <div class="col-3"></div>

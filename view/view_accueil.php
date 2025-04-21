@@ -73,7 +73,7 @@
             <div class="col-3"></div>
 
             <div class="col-5">
-                <h4 class="mb-3 border-bottom border-dark border-2">Les mieux notés</h4>
+                <h3 class="mb-3 border-bottom border-dark border-2">Les mieux notés</h3>
             </div>
 
             <div class="col-1 text-end d-flex">
@@ -175,7 +175,7 @@
             <div class="col-3"></div>
 
             <div class="col-5">
-                <h4 class="mb-3 border-bottom border-dark border-2">Nouveautés</h4>
+                <h3 class="mb-3 border-bottom border-dark border-2">Nouveautés</h3>
             </div>
 
             <div class="col-1 text-end d-flex">
@@ -286,7 +286,7 @@
             <div class="col-3"></div>
 
             <div class="col-5">
-                <h4 class="mb-3 border-bottom border-dark border-2">À venir</h4>
+                <h3 class="mb-3 border-bottom border-dark border-2">À venir</h3>
             </div>
 
             <div class="col-1 text-end d-flex">
@@ -429,7 +429,7 @@
             <div class="col-4" style="width: 32%;">
                 <div class="card">
                     <img src="./img/hansZimmer.jpg" class="card-img-top" alt="...">
-                    <div class="card-body text-white rounded-bottom">
+                    <div class="card-body text-white rounded-bottom" style="background-color:#2B3035;">
                         <h5 class="card-title">Hans Zimmer</h5>
                         <p class="card-text text-wrap">Hans Zimmer, né le 12 septembre 1957 à
                             Francfort(RFA), est un compositeur de musique de film et producteur...</p>

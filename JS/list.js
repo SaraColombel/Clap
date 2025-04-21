@@ -176,7 +176,7 @@ function fetchMovies(apiUrl) {
 					const movieCard = `
                 <div class="card">
                     <img class="img-fluid rounded-top" alt="${movie.title}" src="${srcImg}">
-                    <div class="card-body text-white rounded-bottom">
+                    <div class="card-body c-b text-white rounded-bottom">
                         <h7 class="card-title">${movie.title}</h7>
                         <p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
                         <div class="card-average">${stars} ${noteNumber}
