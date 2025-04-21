@@ -21,10 +21,10 @@ html.theme-light body{
   background-color: var(--fill);
   color: var(--text);
 }
-html.theme-dark body{
+/* html.theme-dark body{
   background-color: var(--fill);
   color: var(--text);
-}
+} */
 
 html.theme-light button{
   background-color: var(--primary);

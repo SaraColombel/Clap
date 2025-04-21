@@ -71,7 +71,7 @@
                 </div>
 
                 <!-- Thème sombre -->
-                <div class="col d-flex justify-content-start">
+                <!-- <div class="col d-flex justify-content-start">
                     <div class="toggler">
                         <label id="switch" class="switch">
                             <input type="checkbox" onchange="toggleTheme()" id="slider" aria-label="Changer le thème"
@@ -80,7 +80,7 @@
                         </label>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
             <!-- Icônes de déconnexion et profil -->
