@@ -1,7 +1,7 @@
 <?php include './utilitaire/session_config.php' ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="theme-light">
 
 <head>
     <meta charset="UTF-8">
@@ -36,7 +36,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="col-6 d-flex pe-0">
+                <div class="col-6 d-flex pe-0 ps-0">
                     <!-- Menu Navbar (liens de navigation) -->
                     <div class="col-2 collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav">
@@ -70,21 +70,33 @@
                     </div>
                 </div>
 
-
-                <!-- Icônes de déconnexion et profil -->
-                <div class="col d-flex justify-content-end text-end">
-                    <a class="nav-link" href="controler_deco.php">
-                        <i class="bi bi-box-arrow-right <?php echo $deco_class ?>"
-                            style="font-size: 40px; color: white; display: <?php echo $deconnexion ?>;"></i>
-                    </a>
-
-                    <div class="mx-3"></div>
-
-                    <a href="controler_user.php">
-                        <i class="bi bi-person-circle" style="font-size: 40px; color: <?php echo $colorContact ?>;"></i>
-                    </a>
+                <!-- Thème sombre -->
+                <!-- <div class="col d-flex justify-content-start">
+                    <div class="toggler">
+                        <label id="switch" class="switch">
+                            <input type="checkbox" onchange="toggleTheme()" id="slider" aria-label="Changer le thème"
+                                aria-checked="false">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
                 </div>
+            </div> -->
+
+
+            <!-- Icônes de déconnexion et profil -->
+            <div class="col d-flex justify-content-end text-end">
+                <a class="nav-link" href="controler_deco.php">
+                    <i class="bi bi-box-arrow-right <?php echo $deco_class ?>"
+                        style="font-size: 40px; color: white; display: <?php echo $deconnexion ?>;"></i>
+                </a>
+
+                <div class="mx-3"></div>
+
+                <a href="controler_user.php">
+                    <i class="bi bi-person-circle" style="font-size: 40px; color: <?php echo $colorContact ?>;"></i>
+                </a>
             </div>
+        </div>
         </div>
     </nav>
 

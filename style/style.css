@@ -1,11 +1,93 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Questrial&family=Recursive:wght@300..1000&display=swap');
 
-h1, h2, h3, h4, h5, h6{
+/*
+THEMES */
+.theme-light{
+  --fill: white;
+  --primary: #2B3035;
+  --secondary: #ffc107;
+  --text: black;
+}
+
+.theme-dark{
+  --fill: #212429;
+  --primary: #2A2D32;
+  --secondary: #ffc107;
+  --text: white;
+}
+
+html.theme-light body{
+  background-color: var(--fill);
+  color: var(--text);
+}
+/* html.theme-dark body{
+  background-color: var(--fill);
+  color: var(--text);
+} */
+
+/* html.theme-light button{
+  background-color: var(--primary);
+}
+html.theme-dark button{
+  background-color: var(--primary);
+} */
+
+/* Style pour le switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+
+
+
+
+h1, h2, h3, h4{
     font-family: 'Lexend';
     width: 100%;
 }
-p, a{
+p, a, h5, h6{
   font-family: 'Questrial';
   width: 100%;
 }
@@ -13,6 +95,8 @@ p, a{
   font-family: 'Lexend';
   font-size: 18px;
 }
+
+
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -27,11 +111,11 @@ p, a{
   }
 }
 
-.card-body{
+.c-b{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color:#2B3035;
+  background-color:var(--primary);
   align-content: center;
   padding-top: 15px !important;
   padding-bottom: 15px !important;
@@ -80,21 +164,21 @@ nav{
   left: 50%;
   transform: translateX(-50%);
   z-index: 50;
-  background-color: #383838;
+  background-color: var(--primary);
   color: white;
   border-radius: 2%;
 }
 
 .selected{
   background-color: #ffc107 !important;
-  color:#2B3035 !important;
+  color:var(--primary) !important;
   border:none !important;
   height: 38px;
 }
 
 .btn-custom {
-  background-color: #2B3035;
-  border-color: #2B3035;
+  background-color: var(--primary);
+  border-color: var(--primary);
 }
 
 .btn-custom:hover {
@@ -147,3 +231,28 @@ nav{
   cursor: pointer;
 }
 
+
+/* Blog */
+.object-cover {
+  object-fit: cover;
+}
+
+.collage-img-small {
+  height: calc(50% - 5px);
+  object-fit: cover;
+}
+
+/* Si tu veux une hauteur fixe propre */
+@media (min-width: 768px) {
+  .row.g-2 {
+    height: 400px; /* Ajuste selon ton goût */
+  }
+}
+
+.hover-zoom{
+  transition: 0.3s ease-in-out;
+}
+
+.hover-zoom:hover {
+  transform: scale(1.05);
+}

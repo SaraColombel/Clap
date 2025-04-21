@@ -210,7 +210,7 @@ function displayMovies(movies, category) {
 			const movieCard = `
 		<div class="card">
 		<img class="img-fluid rounded-top" alt="${movie.title}" src="${srcImg}">
-		<div class="card-body text-white rounded-bottom" style="background-color:#2B3035;">
+		<div class="card-body c-b text-white rounded-bottom" style="background-color:#2B3035;">
 			<h7 class="card-title">${movie.title}</h7>
 			<p class="card-text m-0">${new Date(movie.release_date).getFullYear()}</p>
 			<div>${stars} ${noteNumber}</div>
