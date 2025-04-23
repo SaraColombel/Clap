@@ -125,15 +125,6 @@ p, a, h5, h6{
   font-size: 17px;
 }
 
-.little-card-title{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: 500;
-  font-size: 18px;
-
-}
-
 .card-title{
   white-space: nowrap;
   overflow: hidden;
@@ -272,23 +263,43 @@ nav{
   margin-bottom: 0;
 }
 
-.blog-description{
+/* Blog */
+.blog-card .blog-description {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: height 0.3s ease, opacity 0.3s ease;
+  opacity: 0.8;
+  margin-bottom: 3% !important;
 }
 
 .blog-card{
-  padding: 10px;
+  padding: 5px;
   border-radius: 2%;
   transition: 0.15s ease-in-out;
+  position: relative;
+  overflow: hidden; /* évite les débordements de texte animé */
+}
+.blog-card img {
+  max-height: 250px;
+  object-fit: cover;
 }
 
 .blog-card:hover{
-  background-color: #f3f3f3;
+  background-color: #f7f7f7;
   transform: scale(1.02);
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card:hover .blog-description {
+  opacity: 1;                         /* Rend la description complètement opaque */
+  white-space: normal;                /* Permet le retour à la ligne */
+}
+
+.blog-card-petit img {
+  max-height: 90px;
+  object-fit: cover;
 }
 
 .blog-card-petit{
@@ -297,7 +308,14 @@ nav{
   transition: 0.15s ease-in-out;
   display: flex;
   margin-bottom: 3%;
+  position: relative;
+  overflow: hidden;
 }
+
+.blog-card-petit:last-child{
+  margin-bottom: 0;
+}
+
 
 .blog-card-petit:hover{
   background-color: #f3f3f3;
@@ -306,3 +324,77 @@ nav{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+
+
+/* Mouvement de texte */
+.little-title-container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  height: 2.5em; /* fixe la hauteur du titre pour éviter qu'il pousse les éléments */
+  margin-top: 2%;
+}
+
+.big-title-container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  height: 1.8em; /* fixe la hauteur du titre pour éviter qu'il pousse les éléments */
+  margin-top: 2%;
+}
+
+/* Mouvement de texte Blog petit titre */
+.little-card-title {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  font-size: 18px;
+  max-width: 100%;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+.blog-card-petit:hover .little-card-title {
+  animation: scroll-title 8s linear forwards;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+/* Mouvement de texte Blog grand titre */
+.big-card-title{
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  font-size: 120%;
+  max-width: 100%;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover .big-card-title {
+  animation: scroll-title 8s linear forwards;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+
+/* Keyframes */
+@keyframes scroll-title {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(0); /* Pause pendant 2s (25% de 8s = 2s) */
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.datePublication{
+  font-style: italic;
+  font-size: 90%;
+}
