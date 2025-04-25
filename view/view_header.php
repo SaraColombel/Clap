@@ -39,7 +39,7 @@
                 <div class="col-6 d-flex pe-0 ps-0">
                     <!-- Menu Navbar (liens de navigation) -->
                     <div class="col-2 collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav ps-2">
                             <li class="nav-item me-2">
                                 <a class="nav-link <?php echo $displayAccueil ?>" aria-current="page"
                                     href="controler_accueil.php">Accueil</a>
@@ -47,11 +47,14 @@
                             <li class="nav-item me-2 ms-2">
                                 <a class="nav-link <?php echo $displayFilms ?>" href="controler_films.php">Films</a>
                             </li>
-                            <li class="nav-item me-2 ms-2">
+                            <!-- <li class="nav-item me-2 ms-2">
                                 <a class="nav-link <?php echo $displaySeries ?>" href="#">Séries</a>
-                            </li>
+                            </li> -->
                             <li class="nav-item me-2 ms-2">
                                 <a class="nav-link <?php echo $displayBlog ?>" href="controler_blog.php">Blog</a>
+                            </li>
+                            <li class="nav-item me-2 ms-2">
+                                <a class="nav-link <?php echo $displayQuizz ?>" href="#">Quizz</a>
                             </li>
                             <li class="nav-item me-2 ms-2">
                                 <a class="nav-link <?php echo $displayContact ?>"
