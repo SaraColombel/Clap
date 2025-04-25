@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Questrial&family=Recursive:wght@300..1000&display=swap');
 
+
 /*
 THEMES */
 .theme-light{
@@ -263,7 +264,7 @@ nav{
   margin-bottom: 0;
 }
 
-/* Blog */
+/* BLOG */
 .blog-card .blog-description {
   white-space: nowrap;
   overflow: hidden;
@@ -404,4 +405,39 @@ nav{
 .datePublication{
   font-style: italic;
   font-size: 90%;
+}
+
+/* SEARCH BAR */
+#results .result-item {
+  padding: 0.75rem;
+  border-bottom: 1px solid #333;
+  cursor: pointer;
+  color: #fff;
+}
+
+#results .result-item:hover {
+  background-color: #444;
+}
+#results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #1e1e1e;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;
+}
+
+.result-item {
+  border-bottom: 1px solid #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.result-item:last-child {
+  border-bottom: none;
 }

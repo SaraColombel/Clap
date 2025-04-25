@@ -199,7 +199,7 @@ function fetchMovies(apiUrl) {
 
 // ______________________________________________________________________________________________________________________
 // Affichage pop-up
-const detailDiv = document.getElementById("details");
+const detailDiv = document. getElementById("details");
 function clickTest(movie) {
 	detailDiv.className = "col-5 d-block";
 	// Récupérer les détails du film

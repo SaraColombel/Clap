@@ -65,11 +65,16 @@
 
                     <!-- Formulaire de recherche -->
                     <div class="col ms-2 d-flex justify-content-start">
-                        <form class="d-flex w-100" role="search">
-                            <!-- Largeur de la barre de recherche ajustée -->
-                            <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
-                            <button class="btn btn-outline-warning" type="submit">Voir</button>
-                        </form>
+                        <div class="position-relative w-100" style="max-width: 400px;" id="searchContainer">
+                            <form class="d-flex w-100" role="search" id="searchForm">
+                                <input class="form-control me-2" type="search" placeholder="Rechercher"
+                                    aria-label="Search" id="searchInput">
+                                <button class="btn btn-outline-warning" type="submit">Voir</button>
+                            </form>
+
+                            <!-- Résultats collés sous l'input -->
+                            <div id="results" class="bg-dark rounded shadow"></div>
+                        </div>
                     </div>
                 </div>
 
@@ -86,20 +91,20 @@
             </div> -->
 
 
-            <!-- Icônes de déconnexion et profil -->
-            <div class="col d-flex justify-content-end text-end">
-                <a class="nav-link" href="controler_deco.php">
-                    <i class="bi bi-box-arrow-right <?php echo $deco_class ?>"
-                        style="font-size: 40px; color: white; display: <?php echo $deconnexion ?>;"></i>
-                </a>
+                <!-- Icônes de déconnexion et profil -->
+                <div class="col d-flex justify-content-end text-end">
+                    <a class="nav-link" href="controler_deco.php">
+                        <i class="bi bi-box-arrow-right <?php echo $deco_class ?>"
+                            style="font-size: 40px; color: white; display: <?php echo $deconnexion ?>;"></i>
+                    </a>
 
-                <div class="mx-3"></div>
+                    <div class="mx-3"></div>
 
-                <a href="controler_user.php">
-                    <i class="bi bi-person-circle" style="font-size: 40px; color: <?php echo $colorContact ?>;"></i>
-                </a>
+                    <a href="controler_user.php">
+                        <i class="bi bi-person-circle" style="font-size: 40px; color: <?php echo $colorContact ?>;"></i>
+                    </a>
+                </div>
             </div>
-        </div>
         </div>
     </nav>
 
