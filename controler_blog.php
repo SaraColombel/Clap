@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+$displayBlog = "active";
 
 
 include './view/view_header.php';

@@ -5,7 +5,7 @@
         <div class="row justify-content-center ">
 
             <div class="col-2 d-flex justify-content-center mb-4 mt-1">
-                <img class="rounded w-75" src="./img/logo.png" alt="Logo">
+                <img class="rounded w-50" src="./img/logo.png" alt="Logo">
             </div>
 
             <div class="col-2">
@@ -59,7 +59,7 @@
 
     <div class="d-flex row justify-content-center py-4 border-top g-0">
         <div class="col-8">
-            <p>© 2024 CLAP, Inc. All rights reserved.</p>
+            <p>© 2025 CLAP Tous droits réservés.</p>
         </div>
         <div class="col-2 d-flex justify-content-end">
             <ul class="list-unstyled d-flex">
