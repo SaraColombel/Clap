@@ -10,5 +10,5 @@ if(isset($_SESSION['id_utilisateur'])){
 }
 
 include './view/view_header.php';
-include './view/view_accueil.php';
+include './view/view_home.php';
 include './view/view_footer.php';

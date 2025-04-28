@@ -42,10 +42,10 @@
                         <ul class="navbar-nav ps-2">
                             <li class="nav-item me-2">
                                 <a class="nav-link <?php echo $displayAccueil ?>" aria-current="page"
-                                    href="controler_accueil.php">Accueil</a>
+                                    href="controler_home.php">Accueil</a>
                             </li>
                             <li class="nav-item me-2 ms-2">
-                                <a class="nav-link <?php echo $displayFilms ?>" href="controler_films.php">Films</a>
+                                <a class="nav-link <?php echo $displayFilms ?>" href="controler_movies.php">Films</a>
                             </li>
                             <!-- <li class="nav-item me-2 ms-2">
                                 <a class="nav-link <?php echo $displaySeries ?>" href="#">Séries</a>

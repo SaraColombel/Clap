@@ -445,5 +445,5 @@
 </div>
 <!-- Fin blog -->
 
-<script src="./JS/accueil.js"></script>
-<script src="./JS/dropDown.js"></script>
+<script type="module" src="./JS/home.js"></script>
+<script type="module" src="./JS/dropDown.js"></script>
