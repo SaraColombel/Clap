@@ -4,6 +4,7 @@ declare(strict_types=1);
 session_start();
 
 include './utilitaire/env.php';
+include 'config.php';
 
 $page = $_GET['page'] ?? 'Accueil'; // Page par défaut
 

@@ -24,7 +24,7 @@
             <div class="row d-flex justify-content-between align-items-center w-100">
                 <!-- Logo -->
                 <div class="col-3 ps-3">
-                    <a class="navbar-brand text-warning" href="/php/Clap/Accueil">
+                    <a class="navbar-brand text-warning" href="<?php echo BASE_URL; ?>/Accueil">
                         <img class="w-25" src="./img/logo2.png" alt="Logo">
                     </a>
                 </div>
@@ -42,23 +42,23 @@
                         <ul class="navbar-nav ps-2">
                             <li class="nav-item me-2">
                                 <a class="nav-link <?php echo $displayAccueil ?>" aria-current="page"
-                                    href="/php/Clap/Accueil">Accueil</a>
+                                    href="<?php echo BASE_URL; ?>/Accueil">Accueil</a>
                             </li>
                             <li class="nav-item me-2 ms-2">
-                                <a class="nav-link <?php echo $displayFilms ?>" href="/php/Clap/Films">Films</a>
+                                <a class="nav-link <?php echo $displayFilms ?>" href="<?php echo BASE_URL; ?>/Films">Films</a>
                             </li>
                             <!-- <li class="nav-item me-2 ms-2">
                                 <a class="nav-link <?php echo $displaySeries ?>" href="#">Séries</a>
                             </li> -->
                             <li class="nav-item me-2 ms-2">
-                                <a class="nav-link <?php echo $displayBlog ?>" href="/php/Clap/Blog">Blog</a>
+                                <a class="nav-link <?php echo $displayBlog ?>" href="<?php echo BASE_URL; ?>/Blog">Blog</a>
                             </li>
                             <li class="nav-item me-2 ms-2">
-                                <a class="nav-link <?php echo $displayQuizz ?>" href="/php/Clap/Quizz">Quizz</a>
+                                <a class="nav-link <?php echo $displayQuizz ?>" href="<?php echo BASE_URL; ?>/Quizz">Quizz</a>
                             </li>
                             <li class="nav-item me-2 ms-2">
                                 <a class="nav-link <?php echo $displayContact ?>"
-                                    href="/php/Clap/Contact">Contact</a>
+                                    href="<?php echo BASE_URL; ?>/Contact">Contact</a>
                             </li>
                         </ul>
                     </div>

@@ -1,9 +1,9 @@
 RewriteEngine On
-RewriteBase /php/Clap/
+RewriteBase /Clap/
 
 # Rediriger la racine vers /Accueil
-RewriteCond %{REQUEST_URI} ^/php/Clap/?$
-RewriteRule ^$ /php/Clap/Accueil [R=302,L]
+RewriteCond %{REQUEST_URI} ^/Clap/?$
+RewriteRule ^$ Accueil [R=302,L]
 
 # Ignorer les fichiers ou dossiers réels
 RewriteCond %{REQUEST_FILENAME} !-f
