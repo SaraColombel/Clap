@@ -1,7 +1,6 @@
 <?php
-session_start();
+$displayFilms = "active";
 
-$displayQuizz = "active";
 
 if(isset($_SESSION['id_utilisateur'])){
     $colorContact = '#ffc107';
@@ -9,6 +8,6 @@ if(isset($_SESSION['id_utilisateur'])){
     $colorContact = 'white';
 }
 
-include './view/view_header.php';
-include './view/view_home.php';
-include './view/view_footer.php';
+// include './views/view_header.php';
+// include './views/view_movies.php';
+// include './views/view_footer.php';

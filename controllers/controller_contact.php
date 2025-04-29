@@ -1,9 +1,7 @@
 <?php
-session_start();
-
-include './utilitaire/functions.php';
-include './model/model_contact.php';
-include './manager/manager_contact.php';
+// include './utilitaire/functions.php';
+// include './models/model_contact.php';
+// include './managers/manager_contact.php';
 
 $message = "";
 $displayContact = "active";
@@ -61,6 +59,6 @@ if(isset($_SESSION['id_utilisateur'])){
     $colorContact = 'white';
 }
 
-include './view/view_header.php';
-include './view/view_contact.php';
-include './view/view_footer.php';
+// include './views/view_header.php';
+// include './views/view_contact.php';
+// include './views/view_footer.php';

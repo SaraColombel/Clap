@@ -24,7 +24,7 @@
             <div class="row d-flex justify-content-between align-items-center w-100">
                 <!-- Logo -->
                 <div class="col-3 ps-3">
-                    <a class="navbar-brand text-warning" href="controler_accueil.php">
+                    <a class="navbar-brand text-warning" href="/php/Clap/Accueil">
                         <img class="w-25" src="./img/logo2.png" alt="Logo">
                     </a>
                 </div>
@@ -42,23 +42,23 @@
                         <ul class="navbar-nav ps-2">
                             <li class="nav-item me-2">
                                 <a class="nav-link <?php echo $displayAccueil ?>" aria-current="page"
-                                    href="controler_home.php">Accueil</a>
+                                    href="/php/Clap/Accueil">Accueil</a>
                             </li>
                             <li class="nav-item me-2 ms-2">
-                                <a class="nav-link <?php echo $displayFilms ?>" href="controler_movies.php">Films</a>
+                                <a class="nav-link <?php echo $displayFilms ?>" href="/php/Clap/Films">Films</a>
                             </li>
                             <!-- <li class="nav-item me-2 ms-2">
                                 <a class="nav-link <?php echo $displaySeries ?>" href="#">Séries</a>
                             </li> -->
                             <li class="nav-item me-2 ms-2">
-                                <a class="nav-link <?php echo $displayBlog ?>" href="controler_blog.php">Blog</a>
+                                <a class="nav-link <?php echo $displayBlog ?>" href="/php/Clap/Blog">Blog</a>
                             </li>
                             <li class="nav-item me-2 ms-2">
-                                <a class="nav-link <?php echo $displayQuizz ?>" href="#">Quizz</a>
+                                <a class="nav-link <?php echo $displayQuizz ?>" href="/php/Clap/Quizz">Quizz</a>
                             </li>
                             <li class="nav-item me-2 ms-2">
                                 <a class="nav-link <?php echo $displayContact ?>"
-                                    href="controler_contact.php">Contact</a>
+                                    href="/php/Clap/Contact">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -93,14 +93,14 @@
 
                 <!-- Icônes de déconnexion et profil -->
                 <div class="col d-flex justify-content-end text-end">
-                    <a class="nav-link" href="controler_deco.php">
+                    <a class="nav-link" href="controller_deco.php">
                         <i class="bi bi-box-arrow-right <?php echo $deco_class ?>"
                             style="font-size: 40px; color: white; display: <?php echo $deconnexion ?>;"></i>
                     </a>
 
                     <div class="mx-3"></div>
 
-                    <a href="controler_user.php">
+                    <a href="controller_user.php">
                         <i class="bi bi-person-circle" style="font-size: 40px; color: <?php echo $colorContact ?>;"></i>
                     </a>
                 </div>

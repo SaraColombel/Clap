@@ -1,9 +1,11 @@
 import { apiKey } from "./api.js";
 
-const detailDiv = document.getElementById("details");
+export function getDetailDiv() {
+    return document.getElementById("details");
+}
 
 export function cardClick(movie) {
-	detailDiv.className = "col-5 d-block";
+	getDetailDiv().className = "col-5 d-block";
 	// Récupérer les détails du film
 	const movieDetailsLink = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}&language=fr-FR`;
 	const movieCreditsLink = `https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${apiKey}&language=fr-FR`;
@@ -68,8 +70,8 @@ export function cardClick(movie) {
                     </div>
                 </div>
             </div>`;
-			detailDiv.innerHTML = content;
-			document.addEventListener("click", function(event) {
+			getDetailDiv().innerHTML = content;
+			document.addEventListener("click", function (event) {
 				if (event.target && event.target.matches("#cross")) {
 					closeClick();
 				}
@@ -79,11 +81,11 @@ export function cardClick(movie) {
 }
 
 function closeClick() {
-	detailDiv.className = "d-none";
+	getDetailDiv().className = "d-none";
 }
 
 document.addEventListener("click", function (event) {
-	if (!detailDiv.contains(event.target) && !event.target.closest(".card")) {
+	if (!getDetailDiv().contains(event.target) && !event.target.closest(".card")) {
 		closeClick();
 	}
 });

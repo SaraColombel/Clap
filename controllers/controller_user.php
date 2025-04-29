@@ -1,10 +1,8 @@
 <?php
-session_start();
-
-include './utilitaire/functions.php';
-include './model/model_user.php';
-include './manager/manager_user.php';
-include 'utilitaire/env.php';
+// include './utilitaire/functions.php';
+// include './models/model_user.php';
+// include './managers/manager_user.php';
+// include 'utilitaire/env.php';
 
 $message = "";
 $messageCo = "";
@@ -139,6 +137,6 @@ if(isset($_POST['connexion'])){
         }
     }
 }
-include './view/view_header.php';
-include './view/view_user.php';
-include './view/view_footer.php';
+// include './views/view_header.php';
+// include './views/view_user.php';
+// include './views/view_footer.php';
