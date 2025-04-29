@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $displayAccueil = "active";
 
@@ -9,6 +8,6 @@ if(isset($_SESSION['id_utilisateur'])){
     $colorContact = 'white';
 }
 
-include './view/view_header.php';
-include './view/view_accueil.php';
-include './view/view_footer.php';
+// include './views/view_header.php';
+// include './views/view_home.php';
+// include './views/view_footer.php';

@@ -19,13 +19,13 @@
             </div>
 
             <div class="col-2">
-                <h5 class="text-warning"><a href="controler_compte.php" class="nav-link p-0">Compte</a></h5>
+                <h5 class="text-warning"><a href="controller_compte.php" class="nav-link p-0">Compte</a></h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="controler_user.php" class="nav-link p-0 text-white">Se connecter</a>
+                    <li class="nav-item mb-2"><a href="controller_user.php" class="nav-link p-0 text-white">Se connecter</a>
                     </li>
-                    <li class="nav-item mb-2"><a href="controler_user.php" class="nav-link p-0 text-white">S'inscrire</a>
+                    <li class="nav-item mb-2"><a href="controller_user.php" class="nav-link p-0 text-white">S'inscrire</a>
                     </li>
-                    <li class="nav-item mb-2"><a href="controler_compte.php" class="nav-link p-0 text-white">Mon compte</a>
+                    <li class="nav-item mb-2"><a href="controller_compte.php" class="nav-link p-0 text-white">Mon compte</a>
                     </li>
                 </ul>
             </div>
@@ -86,9 +86,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="./JS/theme.js"></script>
-
-
+<script type="module" src="./JS/search.js"></script>
+<script type="module" src="./JS/popupManager.js"></script>
+<script type="module" src="./JS/api.js"></script>
 </body>
 
 </html>

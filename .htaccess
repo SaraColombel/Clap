@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /php/Clap/
+
+# Rediriger la racine vers /Accueil
+RewriteCond %{REQUEST_URI} ^/php/Clap/?$
+RewriteRule ^$ /php/Clap/Accueil [R=302,L]
+
+# Ignorer les fichiers ou dossiers réels
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Réécriture propre vers index.php?page=...
+RewriteRule ^(.+)$ index.php?page=$1 [QSA,L]

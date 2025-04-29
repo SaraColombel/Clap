@@ -80,5 +80,5 @@
     </div>
 </div>
 
-<script src="./JS/list.js"></script>
-<script src="./JS/dropDown.js"></script>
+<script type="module" src="./JS/list.js"></script>
+<script type="module" src="./JS/dropDown.js"></script>
