@@ -4,8 +4,9 @@ declare(strict_types=1);
 session_start();
 
 include './utilitaire/env.php';
+include 'config.php';
 
-$page = $_GET['page'] ?? 'Accueil'; // Page par défaut
+$page = preg_replace('/[^a-zA-Z0-9]/', '', $_GET['page'] ?? 'Accueil');
 
 include './views/view_header.php';
 
@@ -26,11 +27,11 @@ switch ($page) {
         break;
 
     case 'Compte':
-        include './controllers/controller_user.php';
-        include './views/view_user.php';
         include './models/model_user.php';
         include './managers/manager_user.php';
         include './utilitaire/functions.php';
+        include './controllers/controller_user.php';
+        include './views/view_user.php';
         break;
 
     case 'Quizz':

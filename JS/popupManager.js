@@ -5,8 +5,15 @@ export function getDetailDiv() {
 }
 
 export function cardClick(movie) {
-	getDetailDiv().className = "col-5 d-block";
-	// Récupérer les détails du film
+	// console.log("clicked", movie);
+	console.log(getDetailDiv());
+	const detail = getDetailDiv();
+
+	console.log("Avant changement :", detail.className);
+	detail.classList.remove("d-none");
+	detail.classList.add("col-5", "d-block");
+	console.log("Après changement :", detail.className);
+
 	const movieDetailsLink = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}&language=fr-FR`;
 	const movieCreditsLink = `https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${apiKey}&language=fr-FR`;
 	const movieProvidersLink = `https://api.themoviedb.org/3/movie/${movie.id}/watch/providers?api_key=${apiKey}`;
@@ -80,18 +87,29 @@ export function cardClick(movie) {
 		});
 }
 
+// Fonction de fermeture des détails
 function closeClick() {
-	getDetailDiv().className = "d-none";
+    getDetailDiv().className = "d-none";
 }
 
+// Gestionnaire d'événements centralisé
 document.addEventListener("click", function (event) {
-	if (!getDetailDiv().contains(event.target) && !event.target.closest(".card")) {
-		closeClick();
-	}
-});
+    const details = getDetailDiv();
+    if (event.target && event.target.matches("#cross")) {
+        closeClick();
+        return;
+    }
+    if (
+        details.classList.contains("d-block") &&
+        !details.contains(event.target) &&
+        !event.target.closest(".card")
+    ) {
+        closeClick();
+    }
+}, true);
 
 function setDetailPosition() {
 	const details = document.getElementById("details");
 	const scrollTop = window.scrollY;
-	details.style.top = `${scrollTop + 200}px`; // Centré verticalement
+	details.style.top = `${scrollTop + 175}px`; // Centré verticalement
 }

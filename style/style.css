@@ -275,7 +275,7 @@ nav{
 }
 
 .blog-card{
-  padding: 5px;
+  padding: 2%;
   border-radius: 2%;
   transition: 0.15s ease-in-out;
   position: relative;
@@ -348,7 +348,7 @@ nav{
   white-space: nowrap;
   position: relative;
   height: 1.8em; /* fixe la hauteur du titre pour éviter qu'il pousse les éléments */
-  margin-top: 2%;
+  margin-top: 1%;
 }
 
 /* Mouvement de texte Blog petit titre */
@@ -358,7 +358,7 @@ nav{
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 110%;
   max-width: 100%;
   transform: translateX(0);
   transition: transform 0.3s ease;
@@ -376,7 +376,7 @@ nav{
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 500;
-  font-size: 120%;
+  font-size: 115%;
   max-width: 100%;
   transform: translateX(0);
   transition: transform 0.2s ease;
