@@ -9,7 +9,6 @@
                     <h5 class="mt-3">Explorez les coulisses du cinéma et des séries, un regard affûté sur les oeuvres qui
                         marquent notre époque. Analyse, critiques, et clins d'oeil à l'histoire du 7e art.</h5>
                     <button class="btn btn-warning btn mt-3">Découvrir</button>
-                    <!-- <a href="#critiques" class="btn btn-warning mt-2">Lire les critiques</a> -->
                 </div>
 
                 <div class="col-6">

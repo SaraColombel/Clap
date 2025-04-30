@@ -1,11 +1,10 @@
 RewriteEngine On
 RewriteBase /Clap/
 
-# Rediriger la racine vers /Accueil
-RewriteCond %{REQUEST_URI} ^/Clap/?$
-RewriteRule ^$ Accueil [R=302,L]
+# Rediriger la racine vers /Accueil sans changer l’URL
+RewriteRule ^$ index.php?page=Accueil [L]
 
-# Ignorer les fichiers ou dossiers réels
+# Ne pas réécrire les fichiers et dossiers réels
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 

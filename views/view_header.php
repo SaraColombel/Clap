@@ -100,7 +100,7 @@
 
                     <div class="mx-3"></div>
 
-                    <a href="controller_user.php">
+                    <a href="<?php echo BASE_URL; ?>/Compte">
                         <i class="bi bi-person-circle" style="font-size: 40px; color: <?php echo $colorContact ?>;"></i>
                     </a>
                 </div>
