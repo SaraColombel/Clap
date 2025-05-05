@@ -44,4 +44,4 @@ Merci pour votre compréhension et vos retours pendant cette phase !
 
 ## 📫 Me contacter
 
-Vous pouvez me contacter à : [saracolombel.pro@gmail.com](mailto:saracolombel.pro@gmail.com)
+Vous pouvez me contacter par [mail](mailto:saracolombel.pro@gmail.com) [saracolombel.pro@gmail.com](mailto:saracolombel.pro@gmail.com)
