@@ -1,4 +1,4 @@
-import { apiKey } from "./api.js";
+import { getMovieLink } from "./api.js";
 
 export function getDetailDiv() {
     return document.getElementById("details");
@@ -14,9 +14,9 @@ export function cardClick(movie) {
 	detail.classList.add("col-5", "d-block");
 	console.log("Après changement :", detail.className);
 
-	const movieDetailsLink = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}&language=fr-FR`;
-	const movieCreditsLink = `https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${apiKey}&language=fr-FR`;
-	const movieProvidersLink = `https://api.themoviedb.org/3/movie/${movie.id}/watch/providers?api_key=${apiKey}`;
+	const movieDetailsLink = getMovieLink(movie.id, null);
+	const movieCreditsLink = getMovieLink(movie.id, "/credits");
+	const movieProvidersLink = getMovieLink(movie.id, "/watch/providers");
 
 	// Récupérer les informations supplémentaires (réalisateur, acteurs, durée, plateformes)
 	Promise.all([fetch(movieDetailsLink), fetch(movieCreditsLink), fetch(movieProvidersLink)])

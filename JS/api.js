@@ -1,6 +1,11 @@
 // fichier : apiInfos.js
 
 export const apiKey = "9ee5cc91c2cb960c4d474ee80a467bc1";
+export const apiURLMovie = "https://api.themoviedb.org/3/movie/";
+
+export function getMovieLink(id, subroute){
+    return `${apiURLMovie}${id}${subroute}` + `?api_key=${apiKey}&language=fr-FR`;
+}
 
 // links list.js and home.js
 export const apiLinkAllMovies = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR`;
