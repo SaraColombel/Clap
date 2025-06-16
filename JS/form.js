@@ -37,7 +37,7 @@ function xssInputChecker(inputParam) {
         infoBoxUI.style.display='block';
         errorMsg.xssMsg = `<p>⛔️ Attention : potentiel XSS détecté.</p>`;
     } else {
-        errorMsg.xssMsg = ''; // Réinitialiser le message
+        errorMsg.xssMsg = '';
     }
 };
 
@@ -48,7 +48,7 @@ function passwordMatchChecker(inputParamColl) {
     } else{
         errorMsg.passwordMsg += `<p>✅ Les mots de passe correspondent.</p>`;
     }
-    displayErrorMessages(); // Appel à la fonction pour afficher les messages d'erreur
+    displayErrorMessages();
 };
 
 function emailInputChecker(paramInput) {
@@ -61,7 +61,7 @@ function emailInputChecker(paramInput) {
         paramInput.style.backgroundColor='red';
         errorMsg.mailMsg = `<p>⛔️ Le format du mail n'est pas correct.</p>`;
     }
-    displayErrorMessages(); // Appel à la fonction pour afficher les messages d'erreur
+    displayErrorMessages();
 };
 allEmailInputsUI.forEach(element => {
     element.addEventListener('click',()=>{
@@ -77,13 +77,12 @@ allPasswordInputsUI.forEach(element => {
 });
 inscriptionPassWordsCheckUI.forEach(element => {
     element.addEventListener('click', () => {
-        // On passe direct la collection
         passwordMatchChecker(inscriptionPassWordsCheckUI);
     });
 });
 
 function passwordInputChecker(inputParam) {
-    errorMsg.passwordMsg = ''; // Réinitialiser le message
+    errorMsg.passwordMsg = '';
 
     if (inputParam.value.length < 6) {
         infoBoxUI.style.display='block';
@@ -105,10 +104,8 @@ function passwordInputChecker(inputParam) {
         infoBoxUI.style.display='block';
         errorMsg.passwordMsg = `<p>✅ Le mot de passe est correct</p>`
     }
-    displayErrorMessages(); // Appel à la fonction pour afficher les messages d'erreur
-};
+    displayErrorMessages();
 
-// Nouvelle fonction pour afficher les messages d'erreur cumulés
 function displayErrorMessages() {
         let combinedMsg = '';
         if (errorMsg.mailMsg) combinedMsg += errorMsg.mailMsg;
@@ -125,6 +122,10 @@ checkBoxFormUI.addEventListener('click', () => {
     selectedForm = !selectedForm;
     displayForm(selectedForm);});
 
+    /**
+     * Change parameters of the form from "connection" state to "inscription" state
+     * @param {boolean} boolParam 
+     */
 function displayForm(boolParam) {
     formConnexionUI.reset();
     formInscriptionUI.reset();
@@ -134,4 +135,4 @@ function displayForm(boolParam) {
     formConnexionUI.style.display = boolParam ? 'none' : 'block';
     formInscriptionUI.style.display = boolParam ? 'block' : 'none';
     formTitleUI.innerText = boolParam ? `Inscription` : 'Connexion';
-    checkBoxLabelUI.innerText = boolParam ? `Vous avez un compte ? Connectez-vous.` : 'Pas encore de compte ? Inscrivez-vous.';};
+    checkBoxLabelUI.innerText = boolParam ? `Vous avez un compte ? Connectez-vous.` : 'Pas encore de compte ? Inscrivez-vous.';};}
